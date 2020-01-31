@@ -8,6 +8,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,16 +24,18 @@ import org.springframework.lang.NonNull;
  * @author mihandsafae
  *
  */
-
+@Entity
 public class Reservation {
 	
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 	 @NonNull
 	 @Column(name = "dateDebut")
 	 private Date dateDebut;
 	 @NonNull
 	 @Column(name = "dateFin")
 	 private Date dateFin ;
-	 @Id
 	 @ManyToOne
 	    @JoinColumn
 	    private Salle salle;
