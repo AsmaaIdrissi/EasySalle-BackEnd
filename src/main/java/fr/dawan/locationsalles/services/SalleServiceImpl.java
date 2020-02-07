@@ -9,7 +9,7 @@ import fr.dawan.locationsalles.repository.SalleRepository;
 
 
 @Transactional
-@Service("SalleService")
+@Service //("SalleService")
 public class SalleServiceImpl implements SalleService{
 	
 	@Autowired
@@ -20,7 +20,7 @@ public class SalleServiceImpl implements SalleService{
 	}
 
 	@Override
-	public Iterable<Salle> listeSalles(Iterable<Salle> salles) {
+	public Iterable<Salle> save(Iterable<Salle> salles) {
 		return salleRepository.saveAll(salles);	
 	}
 
