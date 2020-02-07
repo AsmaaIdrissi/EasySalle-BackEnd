@@ -3,9 +3,13 @@
  */
 package fr.dawan.locationsalles.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  * @author Admin-Stagiaire
@@ -35,7 +39,12 @@ public class Salle {
 	@Column(name = "disponibilite")
 	private boolean disponibilite;
 	
-	//constructeur
+	
+	
+	
+	@OneToMany
+	Set<Reservation> listeReservation =new HashSet<>();
+	
 	public Salle(int idSalle, String capacite, String ville, String adresse, int codePostale, String typeEvenement,
 			String servicePropose, String description, String geocalisation, boolean disponibilite) {
 		super();

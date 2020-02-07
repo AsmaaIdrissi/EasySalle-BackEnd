@@ -41,7 +41,7 @@ public class Reservation {
 	    private Salle salle;
 	 
 	 @ManyToOne
-	    @JoinColumn
+	   @JoinColumn
 	    private Utilisateur utilisateur;
 	 
 	 

@@ -3,8 +3,12 @@
  */
 package fr.dawan.locationsalles.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  * @author Admin-Stagiaire
@@ -14,13 +18,18 @@ import javax.persistence.Id;
 public class Utilisateur {
 	@Id
 	private int idUtilisateur;
+	
 	private String nom;
 	private String prenom;
 	private String adresse;
 	private String tel;
 	private String mail;
 	
-	//constructeur
+	
+	@OneToMany
+	Set<Reservation> listeReservation =new HashSet<>();
+	
+	
 	public Utilisateur(int idUtilisateur, String prenom, String nom, String adresse, String tel, String mail) {
 		super();
 		this.idUtilisateur = idUtilisateur;
@@ -35,7 +44,7 @@ public class Utilisateur {
 		super();
 	}
 
-	//getters and setters
+	
 	public int getIdUtilisateur() {
 		return idUtilisateur;
 	}
