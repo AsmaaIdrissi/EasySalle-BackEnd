@@ -8,6 +8,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -18,6 +19,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Salle {
 	@Id
+	@GeneratedValue()
 	@Column(name = "idSalle")
 	private int idSalle;
 	@Column(name = "capacite")
