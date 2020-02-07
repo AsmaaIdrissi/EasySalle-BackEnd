@@ -22,10 +22,10 @@ public class Salle {
 	private int idSalle;
 	@Column(name = "capacite")
 	private String capacite;
+	@Column(name = "ville")
+	private String ville ;
 	@Column(name = "voie")
-	private String voie ;
-	@Column(name = "adresse")
-	private String adresse;
+	private String voie;
 	@Column(name = "codePostale")
 	private int codePostale;
 	@Column(name = "typeEvenemment")
@@ -45,13 +45,13 @@ public class Salle {
 	@OneToMany
 	Set<Reservation> listeReservation =new HashSet<>();
 	
-	public Salle(int idSalle, String capacite, String ville, String adresse, int codePostale, String typeEvenement,
+	public Salle(int idSalle, String capacite, String ville, String voie, int codePostale, String typeEvenement,
 			String servicePropose, String description, String geocalisation, boolean disponibilite) {
 		super();
 		this.idSalle = idSalle;
 		this.capacite = capacite;
+		this.ville = ville;
 		this.voie = voie;
-		this.adresse = adresse;
 		this.codePostale = codePostale;
 		this.typeEvenement = typeEvenement;
 		this.servicePropose = servicePropose;
@@ -77,17 +77,17 @@ public class Salle {
 	public void setCapacite(String capacite) {
 		this.capacite = capacite;
 	}
-	public String getVoie() {
+	public String getVille() {
+		return ville;
+	}
+	public void setVille(String ville) {
+		this.ville = ville;
+	}
+	public String getvoie() {
 		return voie;
 	}
-	public void setVoie(String voie) {
+	public void setvoie(String voie) {
 		this.voie = voie;
-	}
-	public String getAdresse() {
-		return adresse;
-	}
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
 	}
 	public int getCodePostale() {
 		return codePostale;
