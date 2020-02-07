@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import fr.dawan.locationsalles.services.SalleService;
 import fr.dawan.locationsalles.services.SalleServiceImpl;
+import fr.dawan.locationsalles.services.UtilisateurService;
+import fr.dawan.locationsalles.services.UtilisateurServiceImpl;
 
 
 @Configuration
@@ -23,6 +25,12 @@ public class JPAConfiguration {
 	@Bean
 	public SalleService salleService() {
 		return new SalleServiceImpl();
+		
+	}
+	
+	@Bean
+	public UtilisateurService utilisateurService() {
+		return new UtilisateurServiceImpl();
 		
 	}
 }
