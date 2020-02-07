@@ -22,8 +22,8 @@ public class Salle {
 	private int idSalle;
 	@Column(name = "capacite")
 	private String capacite;
-	@Column(name = "ville")
-	private String ville ;
+	@Column(name = "voie")
+	private String voie ;
 	@Column(name = "adresse")
 	private String adresse;
 	@Column(name = "codePostale")
@@ -50,7 +50,7 @@ public class Salle {
 		super();
 		this.idSalle = idSalle;
 		this.capacite = capacite;
-		this.ville = ville;
+		this.voie = voie;
 		this.adresse = adresse;
 		this.codePostale = codePostale;
 		this.typeEvenement = typeEvenement;
@@ -77,11 +77,11 @@ public class Salle {
 	public void setCapacite(String capacite) {
 		this.capacite = capacite;
 	}
-	public String getVille() {
-		return ville;
+	public String getVoie() {
+		return voie;
 	}
-	public void setVille(String ville) {
-		this.ville = ville;
+	public void setVoie(String voie) {
+		this.voie = voie;
 	}
 	public String getAdresse() {
 		return adresse;
