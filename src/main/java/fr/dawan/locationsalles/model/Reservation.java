@@ -36,11 +36,11 @@ public class Reservation extends Identifiant{
 	 @Column(name = "dateFin")
 	 private Date dateFin ;
 	 @ManyToOne
-	    @JoinColumn
+	    @JoinColumn(name = "id")
 	    private Salle salle;
 	 
 	 @ManyToOne
-	   @JoinColumn
+	 @JoinColumn(name = "id")
 	    private Utilisateur utilisateur;
 	 
 	 
