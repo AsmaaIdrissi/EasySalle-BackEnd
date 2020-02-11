@@ -22,13 +22,15 @@ import javax.persistence.ManyToOne;
  *
  */
 @Entity
-public class Reservation {
+public class Reservation extends Identifiant{
 	
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
 	 
-	 @Column(name = "dateDebut")
+	 public Reservation(int id) {
+		super(id);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Column(name = "dateDebut")
 	 private Date dateDebut;
 	
 	 @Column(name = "dateFin")
@@ -56,6 +58,11 @@ public class Reservation {
 		this.salle = salle;
 		this.utilisateur = utilisateur;
 	}
+
+	public Reservation() {
+		
+	}
+
 
 	/**
 	 * @return the dateDebut

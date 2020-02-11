@@ -32,7 +32,7 @@ public class SalleController {
 		newSalle.setTypeEvenement("mariege");
 		newSalle.setVille("nantes");
 		newSalle=salleService.save(newSalle);
-		System.out.println("new Id "+ newSalle.getIdSalle());
+		System.out.println("new Id "+ newSalle.getId());
 		
 		System.out.println("ajout d'une liste de salle ");
 		List<Salle> listeSalles=new ArrayList<>();
@@ -57,10 +57,14 @@ public class SalleController {
 		
 		Iterable<Salle> result= salleService.save(listeSalles);
 		for(Salle salle : result) {
-			System.out.println("new Id "+ salle.getIdSalle());
+			System.out.println("new Id "+ salle.getId());
 		}
+		//salleService.delet(newSalle);
+		//salleService.deletAll(result);
 		
 		return result;
+		
 	}
+	
 
 }

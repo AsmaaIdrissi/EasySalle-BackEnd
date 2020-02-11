@@ -17,10 +17,8 @@ import javax.persistence.OneToMany;
  *
  */
 @Entity
-public class Utilisateur {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY )
-	private int idUtilisateur;
+public class Utilisateur extends Identifiant{
+	
 	
 	private String nom;
 	private String prenom;
@@ -33,9 +31,8 @@ public class Utilisateur {
 	Set<Reservation> listeReservation =new HashSet<>();
 	
 	
-	public Utilisateur(int idUtilisateur, String prenom, String nom, String adresse, String tel, String mail) {
+	public Utilisateur( String prenom, String nom, String adresse, String tel, String mail) {
 		super();
-		this.idUtilisateur = idUtilisateur;
 		this.prenom = prenom;
 		this.nom = nom;
 		this.adresse = adresse;
@@ -47,13 +44,6 @@ public class Utilisateur {
 		super();
 	}
 
-	
-	public int getIdUtilisateur() {
-		return idUtilisateur;
-	}
-	public void setIdUtilisateur(int idUtilisateur) {
-		this.idUtilisateur = idUtilisateur;
-	}
 	public String getPrenom() {
 		return prenom;
 	}

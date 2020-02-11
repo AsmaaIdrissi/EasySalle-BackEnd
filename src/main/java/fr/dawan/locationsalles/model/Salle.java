@@ -8,9 +8,6 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 /**
@@ -18,11 +15,12 @@ import javax.persistence.OneToMany;
  *
  */
 @Entity
-public class Salle {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY )
-	@Column(name = "idSalle")
-	private int idSalle;
+public class Salle extends Identifiant {
+	
+	public Salle(int id) {
+		super(id);
+		
+	}
 	@Column(name = "capacite")
 	private String capacite;
 	@Column(name = "ville")
@@ -35,8 +33,8 @@ public class Salle {
 	private String typeEvenement;
 	@Column(name = "servicePropose")
 	private String servicePropose;
-	@Column(name = "Description")
-	private String Description;
+	@Column(name = "description")
+	private String description;
 	@Column(name = "geocalisation")
 	private String geocalisation;
 	@Column(name = "disponibilite")
@@ -48,17 +46,16 @@ public class Salle {
 	@OneToMany
 	Set<Reservation> listeReservation =new HashSet<>();
 	
-	public Salle(int idSalle, String capacite, String ville, String voie, int codePostale, String typeEvenement,
+	public Salle(String capacite, String ville, String voie, int codePostale, String typeEvenement,
 			String servicePropose, String description, String geocalisation, boolean disponibilite) {
 		super();
-		this.idSalle = idSalle;
 		this.capacite = capacite;
 		this.ville = ville;
 		this.voie = voie;
 		this.codePostale = codePostale;
 		this.typeEvenement = typeEvenement;
 		this.servicePropose = servicePropose;
-		Description = description;
+		this.description = description;
 		this.geocalisation = geocalisation;
 		this.disponibilite = disponibilite;
 	}
@@ -67,13 +64,6 @@ public class Salle {
 		super();
 	}
 
-	// getters and setters
-	public int getIdSalle() {
-		return idSalle;
-	}
-	public void setIdSalle(int idSalle) {
-		this.idSalle = idSalle;
-	}
 	public String getCapacite() {
 		return capacite;
 	}
@@ -86,10 +76,10 @@ public class Salle {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
-	public String getvoie() {
+	public String getVoie() {
 		return voie;
 	}
-	public void setvoie(String voie) {
+	public void setVoie(String voie) {
 		this.voie = voie;
 	}
 	public int getCodePostale() {
@@ -111,10 +101,10 @@ public class Salle {
 		this.servicePropose = servicePropose;
 	}
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 	public String getGeocalisation() {
 		return geocalisation;
@@ -122,7 +112,7 @@ public class Salle {
 	public void setGeocalisation(String geocalisation) {
 		this.geocalisation = geocalisation;
 	}
-	public boolean isDisponibilite() {
+	public boolean getDisponibilite() {
 		return disponibilite;
 	}
 	public void setDisponibilite(boolean disponibilite) {
