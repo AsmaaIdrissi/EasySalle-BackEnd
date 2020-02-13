@@ -8,19 +8,23 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+
 
 /**
  * @author Admin-Stagiaire
  *
  */
 @Entity
-public class Salle extends Identifiant {
-	
-	public Salle(int id) {
-		super(id);
-		
-	}
+public class Salle{
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "idSalle")
+	 private Integer id;
 	@Column(name = "capacite")
 	private String capacite;
 	@Column(name = "ville")
@@ -43,7 +47,8 @@ public class Salle extends Identifiant {
 	
 	
 	
-	@OneToMany
+	@OneToMany(mappedBy = "salle")
+	//@JoinColumn(name= "idSalle")
 	Set<Reservation> listeReservation =new HashSet<>();
 	
 	public Salle(String capacite, String ville, String voie, int codePostale, String typeEvenement,
@@ -117,6 +122,23 @@ public class Salle extends Identifiant {
 	}
 	public void setDisponibilite(boolean disponibilite) {
 		this.disponibilite = disponibilite;
+	}
+
+	public Set<Reservation> getListeReservation() {
+		return listeReservation;
+	}
+
+	public void setListeReservation(Set<Reservation> listeReservation) {
+		this.listeReservation = listeReservation;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

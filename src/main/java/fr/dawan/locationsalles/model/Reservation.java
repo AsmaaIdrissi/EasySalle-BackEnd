@@ -17,30 +17,31 @@ import javax.persistence.ManyToOne;
 
 
 
+
+
 /**
  * @author mihandsafae
  *
  */
 @Entity
-public class Reservation extends Identifiant{
-	
-	 
-	 public Reservation(int id) {
-		super(id);
-		// TODO Auto-generated constructor stub
-	}
+public class Reservation {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	 @Column(name = "idReservation")
+	 private Integer id;
 
-	@Column(name = "dateDebut")
+	@Column(name = "dateDebut" ,nullable = true)
 	 private Date dateDebut;
 	
-	 @Column(name = "dateFin")
+	 @Column(name = "dateFin",nullable = true)
 	 private Date dateFin ;
+	 
 	 @ManyToOne
-	    @JoinColumn(name = "id")
+	 @JoinColumn(name = "idSalle")
 	    private Salle salle;
 	 
 	 @ManyToOne
-	 @JoinColumn(name = "id")
+	@JoinColumn(name = "idUtilisaateur")
 	    private Utilisateur utilisateur;
 	 
 	 
@@ -118,6 +119,11 @@ public class Reservation extends Identifiant{
 	 */
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
+	}
+
+	public String getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	 
 	 

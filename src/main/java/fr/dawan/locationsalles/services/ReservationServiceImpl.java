@@ -8,7 +8,7 @@ import fr.dawan.locationsalles.model.Reservation;
 import fr.dawan.locationsalles.repository.ReservationRepository;
 
 @Transactional
-@Service 
+@Service
 public class ReservationServiceImpl implements ReservationService{
 
 	

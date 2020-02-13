@@ -8,7 +8,7 @@ import fr.dawan.locationsalles.model.Utilisateur;
 import fr.dawan.locationsalles.repository.UtilisateurRepository;
 
 @Transactional
-@Service("UtilisateurService")
+@Service
 public class UtilisateurServiceImpl implements UtilisateurService {
 
 	@Autowired

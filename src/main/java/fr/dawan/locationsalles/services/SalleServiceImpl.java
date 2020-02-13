@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import fr.dawan.locationsalles.model.Identifiant;
 import fr.dawan.locationsalles.model.Salle;
 import fr.dawan.locationsalles.repository.SalleRepository;
 
@@ -34,11 +33,11 @@ public class SalleServiceImpl implements SalleService{
 	public Iterable<Salle> save(Iterable<Salle> salles) {
 		return salleRepository.saveAll(salles);	
 	}
-	//@DeleteMapping("/Salles/{id}")
+	@DeleteMapping("/Salles/{id}")
 	@Override
-	public ResponseEntity<?> deletSalle(/*@PathVariable(value = "id")*/ Identifiant salleId) throws NotFoundException {
+	public ResponseEntity<?> deletSalle(@PathVariable(value = "id") int salleId) throws NotFoundException {
 		
-		Salle salle= salleRepository.findById(salleId.getId()).orElseThrow(() -> new NotFoundException());  
+		Salle salle= salleRepository.findById(salleId).orElseThrow(() -> new NotFoundException());  
 	
 	salleRepository.delete(salle);
 	return ResponseEntity.ok().build();
@@ -47,11 +46,11 @@ public class SalleServiceImpl implements SalleService{
 	
 
 	@Override
-	public ResponseEntity<?> deletSalles(Iterable<Identifiant> ids) throws NotFoundException {
+	public ResponseEntity<?> deletSalles(Iterable<Integer> ids) throws NotFoundException {
 		Salle salle=new Salle();
 	List<Salle> salles=new ArrayList<>();
-		for(Identifiant id : ids) {
-			salle= salleRepository.findById(id.getId()).orElseThrow(() -> new NotFoundException());  	
+		for(int id : ids) {
+			salle= salleRepository.findById(id).orElseThrow(() -> new NotFoundException());  	
 			salles.add(salle);
 		}
 		
@@ -61,7 +60,7 @@ public class SalleServiceImpl implements SalleService{
 	}
 
 	@Override
-	public Salle updateSalle(/*@PathVariable(value = "id") */Integer SalleId,/* @Valid @RequestBody */Salle salleDetails) throws NotFoundException {
+	public Salle updateSalle(@PathVariable(value = "id") Integer SalleId,@Valid @RequestBody Salle salleDetails) throws NotFoundException {
 
 		Salle salle = salleRepository.findById(SalleId)
 				.orElseThrow(() -> new NotFoundException());
@@ -81,7 +80,7 @@ public class SalleServiceImpl implements SalleService{
 	}
 	
 	@Override
-	public Salle getSalleById(/*@PathVariable(value = "id") */int SalleId) throws NotFoundException {
+	public Salle getSalleById(@PathVariable(value = "id") int SalleId) throws NotFoundException {
 	    return salleRepository.findById(SalleId).orElseThrow(() -> new NotFoundException());
 	}
 

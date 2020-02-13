@@ -10,6 +10,7 @@ import fr.dawan.locationsalles.model.Reservation;
 import fr.dawan.locationsalles.model.Salle;
 import fr.dawan.locationsalles.model.Utilisateur;
 import fr.dawan.locationsalles.services.ReservationServiceImpl;
+import fr.dawan.locationsalles.services.SalleServiceImpl;
 
 @RestController
 @RequestMapping("/reservation")
@@ -18,6 +19,8 @@ public class ReservationController {
 	@Autowired 
 	private ReservationServiceImpl reservationService;
 	
+	@Autowired
+	private SalleServiceImpl salleService;
 	@GetMapping("/init")
 	public Reservation init() {
 		System.out.println("initalisation");
@@ -31,6 +34,9 @@ public class ReservationController {
 		newSalle.setTypeEvenement("mariege");
 		newSalle.setVille("nantes");
 		
+		newSalle=salleService.save(newSalle);
+		/*
+		
 		Utilisateur newUtilisateur=new Utilisateur();
 		
 		newUtilisateur.setAdresse("2 boulevard xxx");
@@ -38,13 +44,13 @@ public class ReservationController {
 		newUtilisateur.setNom("mmmmmm");
 		newUtilisateur.setPrenom("nnnnnnnnn");
 		newUtilisateur.setTel("0765432187");
-		
+		*/
 		
 		Reservation newReservation=new Reservation();
 		newReservation.setSalle(newSalle);
 		newReservation.setDateDebut(null);
 		newReservation.setDateFin(null);
-		newReservation.setUtilisateur(newUtilisateur);
+		newReservation.setUtilisateur(null);
 		newReservation=reservationService.save(newReservation);
 		System.out.println("new Id "+ newReservation.getId());
 		

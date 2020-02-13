@@ -6,6 +6,7 @@ package fr.dawan.locationsalles.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,9 +18,27 @@ import javax.persistence.OneToMany;
  *
  */
 @Entity
-public class Utilisateur extends Identifiant{
+public class Utilisateur {
 	
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "idUtilisateur")
+	private Integer id;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Set<Reservation> getListeReservation() {
+		return listeReservation;
+	}
+
+	public void setListeReservation(Set<Reservation> listeReservation) {
+		this.listeReservation = listeReservation;
+	}
 	private String nom;
 	private String prenom;
 	private String adresse;
