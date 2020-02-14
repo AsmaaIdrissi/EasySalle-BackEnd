@@ -23,22 +23,7 @@ public class Utilisateur {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "idUtilisateur")
-	private Integer id;
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Set<Reservation> getListeReservation() {
-		return listeReservation;
-	}
-
-	public void setListeReservation(Set<Reservation> listeReservation) {
-		this.listeReservation = listeReservation;
-	}
+	private int id;
 	private String nom;
 	private String prenom;
 	private String adresse;
@@ -63,6 +48,21 @@ public class Utilisateur {
 		super();
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Set<Reservation> getListeReservation() {
+		return listeReservation;
+	}
+
+	public void setListeReservation(Set<Reservation> listeReservation) {
+		this.listeReservation = listeReservation;
+	}
 	public String getPrenom() {
 		return prenom;
 	}

@@ -28,7 +28,7 @@ public class Reservation {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	 @Column(name = "idReservation")
-	 private Integer id;
+	 private int id;
 
 	@Column(name = "dateDebut" ,nullable = true)
 	 private Date dateDebut;
@@ -121,9 +121,8 @@ public class Reservation {
 		this.utilisateur = utilisateur;
 	}
 
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getId() {
+		return id;
 	}
 	 
 	 

@@ -54,7 +54,6 @@ public class UtilisateurController {
 		//	System.out.println("new Id "+ user.getId());
 		//}
 		
-		
 		//return result;
 		System.out.println("utilisateur ajouter avec succee");
 	}

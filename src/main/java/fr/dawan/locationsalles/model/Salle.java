@@ -24,7 +24,7 @@ public class Salle{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "idSalle")
-	 private Integer id;
+	 private int id;
 	@Column(name = "capacite")
 	private String capacite;
 	@Column(name = "ville")
@@ -136,9 +136,9 @@ public class Salle{
 		this.id = id;
 	}
 
-	public String getId() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getId() {
+		
+		return id;
 	}
 	
 	

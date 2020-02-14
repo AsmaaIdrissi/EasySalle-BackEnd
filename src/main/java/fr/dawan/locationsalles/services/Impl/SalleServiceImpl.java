@@ -81,7 +81,7 @@ public class SalleServiceImpl implements SalleService{
 	}
 	
 	@Override
-	public Salle getSalleById(@PathVariable(value = "id") int SalleId) throws NotFoundException {
+	public Salle getSalleById(/*@PathVariable(value = "id")*/ int SalleId) throws NotFoundException {
 	    return salleRepository.findById(SalleId).orElseThrow(() -> new NotFoundException());
 	}
 
