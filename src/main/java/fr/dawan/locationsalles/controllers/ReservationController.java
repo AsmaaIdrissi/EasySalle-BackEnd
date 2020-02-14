@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.dawan.locationsalles.model.Reservation;
 import fr.dawan.locationsalles.model.Salle;
-import fr.dawan.locationsalles.model.Utilisateur;
-import fr.dawan.locationsalles.services.ReservationServiceImpl;
-import fr.dawan.locationsalles.services.SalleServiceImpl;
+import fr.dawan.locationsalles.services.Impl.ReservationServiceImpl;
+import fr.dawan.locationsalles.services.Impl.SalleServiceImpl;
 
 @RestController
 @RequestMapping("/reservation")

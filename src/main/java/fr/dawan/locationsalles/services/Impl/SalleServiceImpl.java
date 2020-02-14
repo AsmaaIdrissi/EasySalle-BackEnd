@@ -1,4 +1,4 @@
-package fr.dawan.locationsalles.services;
+package fr.dawan.locationsalles.services.Impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import fr.dawan.locationsalles.model.Salle;
 import fr.dawan.locationsalles.repository.SalleRepository;
+import fr.dawan.locationsalles.services.SalleService;
 
 
 @Transactional
