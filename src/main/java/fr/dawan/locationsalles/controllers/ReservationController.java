@@ -26,8 +26,8 @@ public class ReservationController {
 		
 		
 		Salle newSalle=new Salle();
-		newSalle.setCapacite("200");
-		newSalle.setCodePostale(44500);
+		//newSalle.setCapacite(200);
+		newSalle.setCodePostale("44500");
 		newSalle.setDescription("salle de mariage avec plusieurs services");
 		newSalle.setDisponibilite(true);
 		newSalle.setTypeEvenement("mariege");

@@ -2,6 +2,7 @@ package fr.dawan.locationsalles.services.Impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -31,8 +32,8 @@ public class SalleServiceImpl implements SalleService{
 	}
 
 	@Override
-	public Iterable<Salle> save(Iterable<Salle> salles) {
-		return salleRepository.saveAll(salles);	
+	public List<Salle> save( List<Salle>salles) {
+		return (List<Salle>) salleRepository.saveAll(salles);	
 	}
 	@DeleteMapping("/Salles/{id}")
 	@Override
@@ -61,29 +62,48 @@ public class SalleServiceImpl implements SalleService{
 	}
 
 	@Override
-	public Salle updateSalle(@PathVariable(value = "id") Integer SalleId,@Valid @RequestBody Salle salleDetails) throws NotFoundException {
+	public Salle updateSalle(@PathVariable(value = "id") int SalleId,@Valid @RequestBody Salle salleDetails) throws NotFoundException {
 
 		Salle salle = salleRepository.findById(SalleId)
 				.orElseThrow(() -> new NotFoundException());
 
+		salle.setName(salleDetails.getName());
+		salle.setCategorie(salleDetails.getCategorie());
 		salle.setCapacite(salleDetails.getCapacite());
 		salle.setCodePostale(salleDetails.getCodePostale());
-		salle.setCapacite(salleDetails.getDescription());
+		salle.setDescription(salleDetails.getDescription());
 		salle.setDisponibilite(salleDetails.getDisponibilite());
 		salle.setGeocalisation(salleDetails.getGeocalisation());
 		salle.setVoie(salleDetails.getVoie());
 		salle.setVille(salleDetails.getVille());
 		salle.setServicePropose(salleDetails.getServicePropose());
-		salle.setCapacite(salleDetails.getTypeEvenement());
+		salle.setTypeEvenement(salleDetails.getTypeEvenement());
 	
 		Salle updatedSalle = salleRepository.save(salle);
 		return updatedSalle;
 	}
 	
 	@Override
-	public Salle getSalleById(/*@PathVariable(value = "id")*/ int SalleId) throws NotFoundException {
-	    return salleRepository.findById(SalleId).orElseThrow(() -> new NotFoundException());
+	public Salle getSalleById(@PathVariable(value = "id") int salleId) throws NotFoundException {
+	    return salleRepository.findById(salleId).orElseThrow(() -> new NotFoundException());
 	}
+
+	@Override
+	public List<Salle> getAllSallesById(Iterable<Integer> sallesIds) throws NotFoundException {
+	List<Salle> salles=new ArrayList<Salle>();
+	for(Integer id :sallesIds ) {
+		salles.add(salleRepository.findById(id).orElseThrow(() -> new NotFoundException()));
+	}
+	
+	return salles;
+	}
+
+	@Override
+	public List<Salle> getAllSalles() {
+		
+		return (List<Salle>) salleRepository.findAll();
+	}
+
 
 	
 	

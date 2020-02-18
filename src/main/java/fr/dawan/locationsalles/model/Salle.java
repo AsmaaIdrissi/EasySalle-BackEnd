@@ -25,24 +25,37 @@ public class Salle{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "idSalle")
 	 private int id;
+	@Column(name = "name")
+	private String name ;
 	@Column(name = "capacite")
-	private String capacite;
+	private int capacite;
 	@Column(name = "ville")
 	private String ville ;
 	@Column(name = "voie")
 	private String voie;
 	@Column(name = "codePostale")
-	private int codePostale;
+	private String codePostale;
 	@Column(name = "typeEvenemment")
 	private String typeEvenement;
 	@Column(name = "servicePropose")
 	private String servicePropose;
+	@Column(name = "categorie")
+	private int categorie;
 	@Column(name = "description")
 	private String description;
 	@Column(name = "geocalisation")
 	private String geocalisation;
 	@Column(name = "disponibilite")
 	private boolean disponibilite;
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	
 	
 	
 	
@@ -51,8 +64,8 @@ public class Salle{
 	//@JoinColumn(name= "idSalle")
 	Set<Reservation> listeReservation =new HashSet<>();
 	
-	public Salle(String capacite, String ville, String voie, int codePostale, String typeEvenement,
-			String servicePropose, String description, String geocalisation, boolean disponibilite) {
+	public Salle(int capacite, String ville, String voie, String codePostale, String typeEvenement,
+			String servicePropose,int categorie, String description, String geocalisation, boolean disponibilite) {
 		super();
 		this.capacite = capacite;
 		this.ville = ville;
@@ -60,19 +73,28 @@ public class Salle{
 		this.codePostale = codePostale;
 		this.typeEvenement = typeEvenement;
 		this.servicePropose = servicePropose;
+		this.categorie=categorie;
 		this.description = description;
 		this.geocalisation = geocalisation;
-		this.disponibilite = disponibilite;
+		this.disponibilite= disponibilite;
 	}
 	
+	public int getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(int categorie) {
+		this.categorie = categorie;
+	}
+
 	public Salle() {
 		super();
 	}
 
-	public String getCapacite() {
+	public int getCapacite() {
 		return capacite;
 	}
-	public void setCapacite(String capacite) {
+	public void setCapacite(int capacite) {
 		this.capacite = capacite;
 	}
 	public String getVille() {
@@ -87,10 +109,10 @@ public class Salle{
 	public void setVoie(String voie) {
 		this.voie = voie;
 	}
-	public int getCodePostale() {
+	public String getCodePostale() {
 		return codePostale;
 	}
-	public void setCodePostale(int codePostale) {
+	public void setCodePostale(String codePostale) {
 		this.codePostale = codePostale;
 	}
 	public String getTypeEvenement() {
