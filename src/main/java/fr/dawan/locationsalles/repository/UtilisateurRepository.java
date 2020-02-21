@@ -3,6 +3,9 @@
  */
 package fr.dawan.locationsalles.repository;
 
+
+
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import fr.dawan.locationsalles.model.Utilisateur;
@@ -16,5 +19,8 @@ import fr.dawan.locationsalles.model.Utilisateur;
  *
  */
 public interface UtilisateurRepository extends CrudRepository<Utilisateur, Integer> {
+
+	@Query
+	Utilisateur findByUsername(String username);
 
 }

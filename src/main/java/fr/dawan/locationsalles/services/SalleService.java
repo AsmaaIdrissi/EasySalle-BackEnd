@@ -21,6 +21,11 @@ public interface SalleService {
 	public Salle getSalleById(int salleId) throws NotFoundException;
 	public List<Salle> getAllSallesById(Iterable<Integer> sallesIds) throws NotFoundException;
 	public List<Salle> getAllSalles();
+	public Iterable<Salle> getSalleByVille(String ville);
+	public Iterable<Salle> getSalleByCapacite(int capacite);
+	public Iterable<Salle> getSalleByTypeEvenement(String typeEvenement);
+	public Iterable<Salle> getSalleByCodePostale(int codePostale);
+	public Iterable<Salle> getSalleByDisponibilite(boolean disponibilite);
 
 
 }

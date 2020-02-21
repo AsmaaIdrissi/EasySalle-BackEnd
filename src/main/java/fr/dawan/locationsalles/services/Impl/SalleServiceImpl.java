@@ -104,7 +104,29 @@ public class SalleServiceImpl implements SalleService{
 		return (List<Salle>) salleRepository.findAll();
 	}
 
-
+	@Override
+	public Iterable<Salle> getSalleByVille(String ville) {
+		return salleRepository.getSalleByVille(ville);
+	}
+	@Override
+	public Iterable<Salle> getSalleByCapacite(int capacite) {
+		// TODO Auto-generated method stub
+		return salleRepository.getSalleByCapacite(capacite);
+	}
+	@Override
+	public Iterable<Salle> getSalleByTypeEvenement(String typeEvenement) {
+		// TODO Auto-generated method stub
+		return salleRepository.getSalleByTypeEvenement(typeEvenement);
+	}
+	@Override
+	public Iterable<Salle> getSalleByCodePostale(int codePostale) {
+		// TODO Auto-generated method stub
+		return salleRepository.getSalleByCodePostale(codePostale);
+	}
+	@Override
+	public Iterable<Salle> getSalleByDisponibilite(boolean disponibilite) {
+		return salleRepository.getSalleByDisponibilite(disponibilite);
+	}
 	
 	
 	

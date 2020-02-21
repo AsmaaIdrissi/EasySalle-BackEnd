@@ -36,12 +36,11 @@ public class Reservation {
 	 @Column(name = "dateFin",nullable = true)
 	 private Date dateFin ;
 	 
+	 @Column(name = "dateFin",nullable = true)
 	 @ManyToOne
-	 @JoinColumn(name = "idSalle")
 	    private Salle salle;
-	 
+	 @Column(name = "dateFin",nullable = true)
 	 @ManyToOne
-	@JoinColumn(name = "idUtilisaateur")
 	    private Utilisateur utilisateur;
 	 
 	 

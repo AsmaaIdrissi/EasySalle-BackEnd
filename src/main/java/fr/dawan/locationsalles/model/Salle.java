@@ -61,7 +61,6 @@ public class Salle{
 	
 	
 	@OneToMany(mappedBy = "salle")
-	//@JoinColumn(name= "idSalle")
 	Set<Reservation> listeReservation =new HashSet<>();
 	
 	public Salle(int capacite, String ville, String voie, String codePostale, String typeEvenement,
