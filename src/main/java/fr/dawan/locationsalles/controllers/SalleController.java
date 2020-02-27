@@ -1,5 +1,6 @@
 package fr.dawan.locationsalles.controllers;
 
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,12 +11,20 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+import org.springframework.http.MediaType;
+import org.springframework.http.MediaTypeEditor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import fr.dawan.locationsalles.model.Salle;
+import fr.dawan.locationsalles.services.SalleService;
 import fr.dawan.locationsalles.services.Impl.SalleServiceImpl;
 
 @RestController
@@ -27,66 +36,68 @@ public class SalleController {
 	@Autowired 
 	private SalleServiceImpl salleService;
 	
-		
-		private static Map<String, Salle> salles = new HashMap<>();
-		
-		
-		
-		@GetMapping(value="/init")
-		public void init() throws Exception {
 	
-			Map<String,Salle> map =new HashMap<>	();
-			map=generatesalles();
-			
-			//List<Integer> keys= new ArrayList<Integer>();
-			List<Salle> values= new ArrayList<Salle>(map.values());
-			
-					salleService.save(values);
-			
-		}
+	@GetMapping(value="/init")
+	public void init() throws Exception {
+
+		Map<String,Salle> map =new HashMap<>	();
+		map=salleService.generatesalles();
 		
+		//List<Integer> keys= new ArrayList<Integer>();
+		List<Salle> values= new ArrayList<Salle>(map.values());
 		
-		 public Map<String,Salle> generatesalles()
-				throws FileNotFoundException, IOException {
-			
-			FileReader filesallesReader = new FileReader("C:\\Users\\Admin-Stagiaire\\Desktop\\sallesNantes.csv");
-			BufferedReader buffersallesReader = new BufferedReader(filesallesReader);
-			
-			String line = buffersallesReader.readLine();
-			
-			while ((line = buffersallesReader.readLine()) != null) {
-				String[] data = line.split(",");
-				//System.out.println(data[2]);
-				
-				Salle salle = new Salle();
+				salleService.save(values);
 		
-				salle.setId(Integer.parseInt(data[0]));
-				salle.setName(data[1]);
-				salle.setCapacite(Integer.parseInt(data[2]));
-				salle.setVille(data[3]);
-				salle.setCodePostale(data[4]);
-				salle.setVoie(data[5]);
-				salle.setServicePropose(data[6]);
-				salle.setCategorie(Integer.parseInt(data[7]));
-				salle.setTypeEvenement(data[8]);
-				salle.setDescription(data[9]);
-				salle.setDisponibilite((Integer.parseInt(data[10])==1));
-				salle.setGeocalisation(data[11]);
-				
-				salles.put(data[0], salle);
-			
-				
-			} 
-		
-			buffersallesReader.close();
-			return salles;
-		}
-		
-		
+	}
+	
 }
+
+
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+//		
+//		@GetMapping(value="/init")
+//		public void init() throws Exception {
+//	
+//			Map<String,Salle> map =new HashMap<>	();
+//			map=salleService.generatesalles();
+//			
+//			//List<Integer> keys= new ArrayList<Integer>();
+//			List<Salle> values= new ArrayList<Salle>(map.values());
+//			
+//					salleService.save(values);
+//			
+//		}
+		
+		
+		 
+		
+
+	
+//@PostMapping(value="/upload/{id}", consumes=MediaType.MULTIPART_FORM_DATA_VALUE)
+//public Salle uploadFile(
+//		@PathVariable("id") int id,
+//		@RequestParam(name="monument_file") MultipartFile file) throws IOException, NotFoundException{
+//	
+//	return salleService.upload(id, file);
+//}
+//	
+//}	
 	
 	
 //	List<List<String>> salles = new ArrayList<List<String>>();

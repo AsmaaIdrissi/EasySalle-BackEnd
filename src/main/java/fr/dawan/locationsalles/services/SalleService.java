@@ -1,7 +1,9 @@
 package fr.dawan.locationsalles.services;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
-
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -9,6 +11,7 @@ import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import fr.dawan.locationsalles.model.Salle;
 
@@ -26,6 +29,8 @@ public interface SalleService {
 	public Iterable<Salle> getSalleByTypeEvenement(String typeEvenement);
 	public Iterable<Salle> getSalleByCodePostale(int codePostale);
 	public Iterable<Salle> getSalleByDisponibilite(boolean disponibilite);
+	public Salle upload(int id, MultipartFile file) throws IOException, NotFoundException;
+	public Map<String,Salle> generatesalles() throws FileNotFoundException, IOException;
 
 
 }

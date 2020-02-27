@@ -1,11 +1,6 @@
 package fr.dawan.locationsalles.services.Impl;
 
-import java.util.Objects;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,7 +20,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 		this.utilisateurRepository = userRepository;
 	}
 
-	@Override
+	/*@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Utilisateur user = utilisateurRepository.findByUsername(username);
 		if (user == null) {
@@ -33,7 +28,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 		} else {
 			return user;
 		}
-	}
+	}*/
 	
 	
 
@@ -48,10 +43,16 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 	}
 
 	@Override
+	public Utilisateur findByMail(String mail) {
+		
+		return utilisateurRepository.findByMail(mail);
+	}
+
+	/*@Override
 	public Utilisateur findByUsername(String username) {
 
 		return utilisateurRepository.findByUsername(username);
-	}
+	}*/
 
 	
 

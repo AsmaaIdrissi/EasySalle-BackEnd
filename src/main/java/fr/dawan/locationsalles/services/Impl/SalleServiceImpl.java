@@ -1,6 +1,11 @@
 package fr.dawan.locationsalles.services.Impl;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import fr.dawan.locationsalles.model.Salle;
 import fr.dawan.locationsalles.repository.SalleRepository;
@@ -100,7 +106,6 @@ public class SalleServiceImpl implements SalleService{
 
 	@Override
 	public List<Salle> getAllSalles() {
-		
 		return (List<Salle>) salleRepository.findAll();
 	}
 
@@ -110,17 +115,14 @@ public class SalleServiceImpl implements SalleService{
 	}
 	@Override
 	public Iterable<Salle> getSalleByCapacite(int capacite) {
-		// TODO Auto-generated method stub
 		return salleRepository.getSalleByCapacite(capacite);
 	}
 	@Override
 	public Iterable<Salle> getSalleByTypeEvenement(String typeEvenement) {
-		// TODO Auto-generated method stub
 		return salleRepository.getSalleByTypeEvenement(typeEvenement);
 	}
 	@Override
 	public Iterable<Salle> getSalleByCodePostale(int codePostale) {
-		// TODO Auto-generated method stub
 		return salleRepository.getSalleByCodePostale(codePostale);
 	}
 	@Override
@@ -128,6 +130,51 @@ public class SalleServiceImpl implements SalleService{
 		return salleRepository.getSalleByDisponibilite(disponibilite);
 	}
 	
+	
+	public Salle upload(int id, MultipartFile file) throws IOException, NotFoundException {
+		Salle salle= (salleRepository.findById(id).orElseThrow(() -> new NotFoundException()));
+		if(salle != null) {
+		salle.setPicture(file.getBytes());}
+	salleRepository.save(salle);
+	return salle;
+	}
+	
+	
+	public Map<String,Salle> generatesalles() throws FileNotFoundException, IOException {
+		 Map<String, Salle> salles = new HashMap<>();
+		
+		FileReader filesallesReader = new FileReader("C:\\Users\\Admin-Stagiaire\\Desktop\\sallesNantes.csv");
+		BufferedReader buffersallesReader = new BufferedReader(filesallesReader);
+		
+		String line = buffersallesReader.readLine();
+		
+		while ((line = buffersallesReader.readLine()) != null) {
+			String[] data = line.split(",");
+			//System.out.println(data[2]);
+			
+			Salle salle = new Salle();
+	
+			salle.setId(Integer.parseInt(data[0]));
+			salle.setName(data[1]);
+			salle.setCapacite(Integer.parseInt(data[2]));
+			salle.setVille(data[3]);
+			salle.setCodePostale(data[4]);
+			salle.setVoie(data[5]);
+			salle.setServicePropose(data[6]);
+			salle.setCategorie(Integer.parseInt(data[7]));
+			salle.setTypeEvenement(data[8]);
+			salle.setDescription(data[9]);
+			salle.setDisponibilite((Integer.parseInt(data[10])==1));
+			salle.setGeocalisation(data[11]);
+			
+			salles.put(data[0], salle);
+		
+			
+		} 
+	
+		buffersallesReader.close();
+		return salles;
+	}
 	
 	
 }

@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 
@@ -25,6 +26,11 @@ public class Salle{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "idSalle")
 	 private int id;
+	
+	@Lob
+	@Column(name="photo")
+	private byte[] picture;
+	
 	@Column(name = "name")
 	private String name ;
 	@Column(name = "capacite")
@@ -55,7 +61,12 @@ public class Salle{
 		this.name = name;
 	}
 
-	
+	public byte[] getPicture() {
+		return picture;
+	}
+	public void setPicture(byte[] picture) {
+		this.picture = picture;
+	}
 	
 	
 	
