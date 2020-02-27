@@ -3,7 +3,7 @@
  */
 package fr.dawan.locationsalles.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import fr.dawan.locationsalles.model.Reservation;
 
@@ -11,6 +11,6 @@ import fr.dawan.locationsalles.model.Reservation;
  * @author mihandsafae
  *
  */
-public interface ReservationRepository extends CrudRepository<Reservation, Integer>{
+public interface ReservationRepository extends JpaRepository<Reservation, Integer>{
 
 }

@@ -1,11 +1,11 @@
 package fr.dawan.locationsalles.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 
 import fr.dawan.locationsalles.model.Salle;
 
-public interface SalleRepository  extends CrudRepository<Salle, Integer>{
+public interface SalleRepository  extends JpaRepository<Salle, Integer>{
 	/**
 	 * méthode qui retourne la liste des salles dont le param est ville
 	 * 

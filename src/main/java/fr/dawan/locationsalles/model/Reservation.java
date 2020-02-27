@@ -13,12 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-
-
-
-
-
-
 /**
  * @author mihandsafae
  *
@@ -26,24 +20,21 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Reservation {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	 @Column(name = "idReservation")
-	 private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idReservation")
+	private int id;
 
-	@Column(name = "dateDebut" ,nullable = true)
-	 private Date dateDebut;
-	
-	 @Column(name = "dateFin",nullable = true)
-	 private Date dateFin ;
-	 
-	 @Column(name = "dateFin",nullable = true)
-	 @ManyToOne
-	    private Salle salle;
-	 @Column(name = "dateFin",nullable = true)
-	 @ManyToOne
-	    private Utilisateur utilisateur;
-	 
-	 
+	@Column(name = "dateDebut", nullable = true)
+	private Date dateDebut;
+
+	@Column(name = "dateFin", nullable = true)
+	private Date dateFin;
+
+	@ManyToOne(optional = false)
+	private Salle salle;
+
+	@ManyToOne(optional = false)
+	private Utilisateur utilisateur;
 
 	/**
 	 * @param dateDebut
@@ -60,9 +51,8 @@ public class Reservation {
 	}
 
 	public Reservation() {
-		
-	}
 
+	}
 
 	/**
 	 * @return the dateDebut
@@ -123,7 +113,5 @@ public class Reservation {
 	public int getId() {
 		return id;
 	}
-	 
-	 
 
 }

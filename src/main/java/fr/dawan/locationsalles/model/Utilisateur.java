@@ -4,7 +4,7 @@
 package fr.dawan.locationsalles.model;
 
 import java.util.Collection;
-import java.util.Collections;
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -54,7 +54,8 @@ public class Utilisateur implements UserDetails{
     @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @NotNull
+
+	@NotNull
     @Column(name = "password", nullable = false)
     private String password;
 
@@ -167,6 +168,11 @@ public class Utilisateur implements UserDetails{
 	            this.password = BCryptManagerUtil.passwordencoder().encode(password);
 	        }
 	    }
+		
+		
+		public void setUsername(String username) {
+			this.username = username;
+		}
 		
 		
 	public int getId() {
