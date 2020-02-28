@@ -1,33 +1,25 @@
 package fr.dawan.locationsalles.controllers;
 
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
-import org.springframework.http.MediaType;
-=======
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
->>>>>>> 996735b0589dd6c75a743568c75ca5ae0f600085
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 import fr.dawan.locationsalles.model.Salle;
 import fr.dawan.locationsalles.repository.SalleRepository;
 import fr.dawan.locationsalles.services.Impl.SalleServiceImpl;
-import javassist.NotFoundException;
 
 @RestController
 @RequestMapping("/salle")
@@ -88,13 +80,7 @@ public class SalleController {
 		return (List<Salle>) salleService.getSalleByDisponibilite(disponibilite);
 	}
 	
-<<<<<<< HEAD
-	
-@PostMapping(value="/upload/{id}", consumes=MediaType.MULTIPART_FORM_DATA_VALUE)
-public Salle uploadFile(
-		@PathVariable("id") int id,
-		@RequestParam(name="monument_file") MultipartFile file) throws  Exception{
-=======
+
 	@GetMapping(value = "/picture/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	public ResponseEntity<byte[]> download(@PathVariable("id") int id) {
 		byte[] image = salleService.find(id).getPicture();
@@ -105,10 +91,7 @@ public Salle uploadFile(
 				.header(HttpHeaders.CONTENT_TYPE, "image/png")
 				// on envoie l'objet attendu
 				.body(image);
-	}
->>>>>>> 996735b0589dd6c75a743568c75ca5ae0f600085
 	
-	return salleService.upload(id, file);
 }
 	
 }
