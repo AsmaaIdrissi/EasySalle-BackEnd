@@ -17,6 +17,7 @@ import fr.dawan.locationsalles.model.Salle;
 
 public interface SalleService {
 	public Salle save(Salle salle);
+	public List<Salle> findAll();
 	public List<Salle> save(List<Salle> salles);
 	public ResponseEntity<?>  deletSalle(@PathVariable(value = "id") int id) throws NotFoundException;
 	public ResponseEntity<?> deletSalles(@PathVariable(value = "id") Iterable<Integer> id) throws NotFoundException;
@@ -24,11 +25,11 @@ public interface SalleService {
 	public Salle getSalleById(int salleId) throws NotFoundException;
 	public List<Salle> getAllSallesById(Iterable<Integer> sallesIds) throws NotFoundException;
 	public List<Salle> getAllSalles();
-	public Iterable<Salle> getSalleByVille(String ville);
-	public Iterable<Salle> getSalleByCapacite(int capacite);
-	public Iterable<Salle> getSalleByTypeEvenement(String typeEvenement);
-	public Iterable<Salle> getSalleByCodePostale(int codePostale);
-	public Iterable<Salle> getSalleByDisponibilite(boolean disponibilite);
+	public List<Salle> getSalleByVille(String ville);
+	public List<Salle> getSalleByCapacite(int capacite);
+	public List<Salle> getSalleByTypeEvenement(String typeEvenement);
+	public List<Salle> getSalleByCodePostale(int codePostale);
+	public List<Salle> getSalleByDisponibilite(boolean disponibilite);
 	public Salle upload(int id, MultipartFile file) throws IOException, NotFoundException;
 	public Map<String,Salle> generatesalles() throws FileNotFoundException, IOException;
 

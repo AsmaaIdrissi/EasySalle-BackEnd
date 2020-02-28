@@ -1,5 +1,7 @@
 package fr.dawan.locationsalles.services.Impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +28,7 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	@Override
-	public Iterable<Reservation> save(Iterable<Reservation> reservations) {
+	public List<Reservation> save(List<Reservation> reservations) {
 
 		return reservationRepository.saveAll(reservations);
 	}
@@ -38,7 +40,7 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 	@Override
-	public void delet(Iterable<Reservation> reservations) {
+	public void delet(List<Reservation> reservations) {
 		reservationRepository.deleteAll(reservations);
 
 	}

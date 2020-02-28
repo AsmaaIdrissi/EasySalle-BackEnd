@@ -57,6 +57,9 @@ public class ReservationController {
 		salle.setDisponibilite(false);
 		salleService.save(salle);
 	}
+	
+	
+	
 }
 
 //		System.out.println("initalisation");

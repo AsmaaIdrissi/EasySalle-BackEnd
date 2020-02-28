@@ -1,0 +1,32 @@
+id,name,capacite,ville,codePostale,voie,servicePropose,categorie,typeEvenement,description,disponibilite,geolocalisation,
+30,Pôle assoc. Gd Blottereau,50,Nantes,44300,16 Boulevard Auguste Péneau,,2,Réunion de famille,a,1,47.2284292959,-1.51292983966
+901,M. des asso. St Joseph,100,Nantes,44300,478 Route de Saint Joseph,,2,Conférence,,1,47.2692536302,-1.51979922693
+511,Salles La Manu,200,Nantes,44000,10B Boulevard de Stalingrad,Salle de la Manu,1,Conférence,,1,47.2194242547,-1.53559413954
+421,Salle La Roche,100,Nantes,44000,7 Rue de la Révolution des Oeillets,,2,Réunion.,,1,47.2183710228,-1.52066106009
+1021,Maison des Syndicats,220,Nantes,44200,Place de la Gare de l'Etat,,1,Conférence,,1,47.2041727272,-1.55934845059
+931,M. de quartier Dervallières,148,Nantes,44100,5 Rue Auguste Renoir,Maison de quartier des Dervallières,2,Mariage,,1,47.22302055,-1.59519388172
+121,Salle Bretagne,150,Nantes,44000,23 Rue Villebois Mareuil,Salle Bretagne,3,Conférence,,1,47.2273948044,-1.56480635146
+751,Pôle assoc. Port Boyer,100,Nantes,44300,80 Rue du Port Boyer,,2,Conférence,,1,47.2418838687,-1.53905017755
+781,Salle Radar Pin Sec,120,Nantes,44300,24 Boulevard Henri Dunant,Salle Radar Pin Sec,2,Conférence,,1,47.2440539092,-1.52123531587
+1,Salle Bonnaire,140,Nantes,44300,1 Rue de Koufra,Salle Georges Bonnaire,3,Réunion de famille,,1,47.2422119009,-1.52891344073
+91,Pôle assoc. Breil Malville,120,Nantes,44100,38 Rue du Breil,,2,Conférence,,1,47.229070563,-1.58492675078
+541,Salles La Manu,150,Nantes,44000,10B Boulevard de Stalingrad,Salle de la Manu,1,Conférence,,1,47.2194242547,-1.53559413954
+482,M. de quartier Haubans,140,Nantes,44000,1 Boulevard de Berlin,,2,Réunion de famille,,1,47.2140817498,-1.5303287668
+961,CSC Bout-des-Landes,70,Nantes,44300,12 Rue de Concarneau,CSC Bout des Landes,2,Conférence,,1,47.2659416811,-1.57822054693
+361,M. de quartier Ile de Nantes,100,Nantes,44200,2 Rue Conan Mériadec,,2,Mariage,,1,47.2066812588,-1.55085572472
+451,M. de quartier le Dix,210,Nantes,44100,10 Place des Garennes,Dix (Le) Maison de Quartier,2,Conférence,,1,47.2022186908,-1.57816965109
+811,Salle municipale,60,Nantes,44300,11 Rue Santos Dumont,Salle Santos Dumont,2,Réunion.,,1,47.2600598856,-1.56724303314
+631,Salle J. Vallès,100,Nantes,44000,15 Rue de l'Héronnière,,3,Conférence,,1,47.211515891,-1.56244303857
+871,M. de quartier La Mano,90,Nantes,44300,3 Rue Eugène Thomas,,2,Conférence,,1,47.2616608522,-1.57341069776
+61,M. de quartier Bottière,70,Nantes,44300,147 Route de Sainte Luce,,2,Conférence,,1,47.2361218895,-1.51899220832
+721,M. de quartier Confluences,135,Nantes,44200,4 Place du Muguet Nantais,,2,Mariage,,1,47.1942541909,-1.52824828083
+481,M. de quartier Madeleine Ch.de Mars,80,Nantes,44000,22 Rue Emile Péhant,Maison de Quartier Madeleine Champ de Mars,2,Conférence,,1,47.2128432592,-1.54803249989
+1081,Salle associative,80,Nantes,44200,24 Rue des Gobelets,Salle de la Crapaudine,2,Mariage,,1,47.1912682786,-1.5296588855
+571,Salles La Manu,190,Nantes,44000,10B Boulevard de Stalingrad,Salle de la Manu,3,Conférence,,1,47.2194242547,-1.53559413954
+691,Salle festive Nantes Nord,250,Nantes,44300,73 Avenue du Bout des Landes,,4,Mariage,,1,47.263648605,-1.5808489432
+841,Maison des Syndicats,130,Nantes,44200,Place de la Gare de l'Etat,,3,Conférence,,1,47.2041727272,-1.55934845059
+211,Salle Egalité,160,Nantes,44100,6 Boulevard Léon Jouhaux,Salle de l'Egalité,3,Conférence,,1,47.2099166017,-1.58901221449
+241,Pôle assoc. Félix Thomas,60,Nantes,44000,39 Rue Félix Thomas,,1,Réunion.,,1,47.2317092919,-1.55310802733
+151,Pôle assoc. Drac,200,Nantes,44100,15D Boulevard Jean Moulin,,2,Réunion.,,1,47.2033006589,-1.60469188502
+601,Maison des Habitants et du Citoyen,108,Nantes,44100,1 Place des Lauriers,,2,Conférence,,1,47.2042003005,-1.60493603928
+661,Salle festive Nantes Erdre,250,Nantes,44300,251 Route de Saint Joseph,,4,Mariage,,1,47.2540982707,-1.53131896668

@@ -1,5 +1,7 @@
 package fr.dawan.locationsalles.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -13,7 +15,7 @@ public interface SalleRepository  extends JpaRepository<Salle, Integer>{
 	 * @return listes des salles
 	 */
 	@Query
-	public Iterable<Salle> getSalleByVille(String ville);
+	public List<Salle> getSalleByVille(String ville);
 	/**
 	 * méthode qui retourne la liste des salles dont la capacite entre deux nombres
 	 * 
@@ -21,7 +23,7 @@ public interface SalleRepository  extends JpaRepository<Salle, Integer>{
 	 * @return listes des salles
 	 */
 	@Query(value = "select * from Salle s where s.capacite =?1", nativeQuery = true)
-	public Iterable<Salle> getSalleByCapacite(int capacite);
+	public List<Salle> getSalleByCapacite(int capacite);
 	/**
 	 * Méthode renvoi la liste des salles par type Evenemment
 	 * 
@@ -29,7 +31,7 @@ public interface SalleRepository  extends JpaRepository<Salle, Integer>{
 	 * @return liste des salles
 	 */
 	@Query
-	public Iterable<Salle> getSalleByTypeEvenement(String typeEvenement);
+	public List<Salle> getSalleByTypeEvenement(String typeEvenement);
 	/**
 	 * Méthode qui renvoi la liste des salles par code postale
 	 * 
@@ -37,7 +39,7 @@ public interface SalleRepository  extends JpaRepository<Salle, Integer>{
 	 * @return
 	 */
 	@Query
-	public Iterable<Salle> getSalleByCodePostale(int codePostale);
+	public List<Salle> getSalleByCodePostale(int codePostale);
 	/**
 	 * Méthode renvoi la liste des salles disponible
 	 * 
@@ -45,7 +47,7 @@ public interface SalleRepository  extends JpaRepository<Salle, Integer>{
 	 * @return
 	 */
 	@Query(value = "select * from Salle s where s.disponibilite =?1", nativeQuery = true)
-	public Iterable<Salle> getSalleByDisponibilite(boolean disponibilite);
+	public List<Salle> getSalleByDisponibilite(boolean disponibilite);
 }
 
 

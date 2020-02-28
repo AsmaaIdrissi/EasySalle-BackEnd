@@ -1,0 +1,1530 @@
+<!DOCTYPE html><html
+lang="fr"><head><meta
+name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta
+http-equiv="X-UA-Compatible" content="IE=edge"/><meta
+http-equiv="Content-Type" content="text/html; charset=utf-8"/><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UAIOUlFTGwIDXVVQAAED",licenseKey:"6c84580c5c",applicationID:"13942704"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(21),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(22),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(9),t(8),"addEventListener"in window&&t(5),c.xhrWrappable&&t(10),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(9),s=t(8),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",g="pushState",y=t("loader");y.features.stn=!0,t(7),"addEventListener"in window&&t(5);var x=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof x&&(this.bstStart=y.now())}),o.on(w,function(t,n){var e=t[0];e instanceof x&&i("bst",[e,n,this.bstStart,y.now()])}),a.on(m,function(t,n,e){this.bstStart=y.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,y.now(),this.bstType])}),s.on(m,function(){this.bstStart=y.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,y.now(),"requestAnimationFrame"])}),o.on(g+p,function(t){this.time=y.now(),this.startPath=location.pathname+location.hash}),o.on(g+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t("wrap-function")(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){function r(t,n,e){var r=t[n];"function"==typeof r&&(t[n]=function(){var t=i(arguments),n={};o.emit(e+"before-start",[t],n);var a;n[m]&&n[m].dt&&(a=n[m].dt);var s=r.apply(this,t);return o.emit(e+"start",[t,a],s),s.then(function(t){return o.emit(e+"end",[null,t],s),t},function(t){throw o.emit(e+"end",[t],s),t})})}var o=t("ee").get("fetch"),i=t(22),a=t(21);n.exports=o;var s=window,c="fetch-",f=c+"body-",u=["arrayBuffer","blob","json","text","formData"],d=s.Request,l=s.Response,p=s.fetch,h="prototype",m="nr@context";d&&l&&p&&(a(u,function(t,n){r(d[h],n,f),r(l[h],n,f)}),r(s,"fetch",c),o.on(c+"end",function(t,n){var e=this;if(n){var r=n.headers.get("content-length");null!==r&&(e.rxSize=r),o.emit(c+"done",[null,n],e)}else o.emit(c+"done",[t],e)}))},{}],7:[function(t,n,e){var r=t("ee").get("history"),o=t("wrap-function")(r);n.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],8:[function(t,n,e){var r=t("ee").get("raf"),o=t("wrap-function")(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],9:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t("wrap-function")(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],10:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,g,"fn-",s)}function i(t){y.push(t),h&&(b?b.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<y.length;t++)r([],y[t]);y.length&&(y=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",g=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],y=[];n.exports=u;var x=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],11:[function(t,n,e){function r(t){if(!i(t))return null;var n=window.NREUM;if(!n.loader_config)return null;var e=(n.loader_config.accountID||"").toString()||null,r=(n.loader_config.agentID||"").toString()||null,s=(n.loader_config.trustKey||"").toString()||null;if(!e||!r)return null;var c=a.generateCatId(),f=a.generateCatId(),u=Date.now(),d=o(c,f,u,e,r,s);return{header:d,guid:c,traceId:f,timestamp:u}}function o(t,n,e,r,o,i){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var s={v:[0,1],d:{ty:"Browser",ac:r,ap:o,id:t,tr:n,ti:e}};return i&&r!==i&&(s.d.tk=i),btoa(JSON.stringify(s))}function i(t){var n=!1,e=!1,r={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(r=NREUM.init.distributed_tracing,e=!!r.enabled),e)if(t.sameOrigin)n=!0;else if(r.allowed_origins instanceof Array)for(var o=0;o<r.allowed_origins.length;o++){var i=s(r.allowed_origins[o]);if(t.hostname===i.hostname&&t.protocol===i.protocol&&t.port===i.port){n=!0;break}}return e&&n}var a=t(19),s=t(13);n.exports={generateTracePayload:r,shouldGenerateTrace:i}},{}],12:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<l;r++)t.removeEventListener(d[r],this.listener,!1);n.aborted||(e.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==n.status&&(n.status=0):i(this,t),e.cbTime=this.cbTime,u.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime]))}}function o(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.parsedOrigin=c(n),t.sameOrigin=t.parsedOrigin.sameOrigin}function i(t,n){t.params.status=n.status;var e=w(n,t.lastSize);if(e&&(t.metrics.rxSize=e),t.sameOrigin){var r=n.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(13),f=t(11).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(17),m=t(16),w=t(14),v=window.XMLHttpRequest;a.features.xhr=!0,t(10),t(6),u.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,n.loadCaptureCalled=!1,t.addEventListener("load",function(e){i(n,t)},!1),h&&(h>34||h<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var e=f(this.parsedOrigin);e&&e.header&&(n.setRequestHeader("newrelic",e.header),this.dt=e)}),u.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=m(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<l;s++)n.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),u.on("xhr-load-added",function(t,n){var e=""+p(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,n){var e=""+p(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,n){n instanceof v&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],n)}),u.on("removeEventListener-end",function(t,n){n instanceof v&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],n)}),u.on("fn-start",function(t,n,e){n instanceof v&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,n){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)}),u.on("fetch-before-start",function(t){var n,e=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url&&(n=t[0].url),n&&(this.parsedOrigin=c(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var r=f(this.parsedOrigin);if(r&&r.header){var o=r.header;if("string"==typeof t[0]){var i={};for(var a in e)i[a]=e[a];i.headers=new Headers(e.headers||{}),i.headers.set("newrelic",o),this.dt=r,t.length>1?t[1]=i:t.push(i)}else t[0]&&t[0].headers&&(t[0].headers.append("newrelic",o),this.dt=r)}})}},{}],13:[function(t,n,e){var r={};n.exports=function(t){if(t in r)return r[t];var n=document.createElement("a"),e=window.location,o={};n.href=t,o.port=n.port;var i=n.href.split("://");!o.port&&i[1]&&(o.port=i[1].split("/")[0].split("@").pop().split(":")[1]),o.port&&"0"!==o.port||(o.port="https"===i[0]?"443":"80"),o.hostname=n.hostname||e.hostname,o.pathname=n.pathname,o.protocol=i[0],"/"!==o.pathname.charAt(0)&&(o.pathname="/"+o.pathname);var a=!n.protocol||":"===n.protocol||n.protocol===e.protocol,s=n.hostname===document.domain&&n.port===e.port;return o.sameOrigin=a&&(!n.hostname||s),"/"===o.pathname&&(r[t]=o),o}},{}],14:[function(t,n,e){function r(t,n){var e=t.responseType;return"json"===e&&null!==n?n:"arraybuffer"===e||"blob"===e||"json"===e?o(t.response):"text"===e||"document"===e||""===e||void 0===e?o(t.responseText):void 0}var o=t(16);n.exports=r},{}],15:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(21),s=t(22),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t,n){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,n])}},{}],16:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],17:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],18:[function(t,n,e){function r(t,n){var e=t.getEntries();e.forEach(function(t){"first-paint"===t.name?c("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&c("timing",["fcp",Math.floor(t.startTime)])})}function o(t,n){var e=t.getEntries();e.length>0&&c("lcp",[e[e.length-1]])}function i(t){if(t instanceof u&&!l){var n,e=Math.round(t.timeStamp);n=e>1e12?Date.now()-e:f.now()-e,l=!0,c("timing",["fi",e,{type:t.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,s,c=t("handle"),f=t("loader"),u=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),s=new PerformanceObserver(o);try{a.observe({entryTypes:["paint"]}),s.observe({entryTypes:["largest-contentful-paint"]})}catch(d){}}if("addEventListener"in document){var l=!1,p=["click","keydown","mousedown","pointerdown","touchstart"];p.forEach(function(t){document.addEventListener(t,i,!1)})}}},{}],19:[function(t,n,e){function r(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(n=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&Uint8Array&&(n=r.getRandomValues(new Uint8Array(31)));for(var o=[],i=0;i<16;i++)o.push(t().toString(16));return o.join("")}n.exports={generateUuid:r,generateCatId:o}},{}],20:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],21:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],22:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],23:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([x,e,r,a]),a}}function p(t,n){g[t]=m(t).concat(n)}function h(t,n){var e=g[t];if(e)for(var r=0;r<e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return g[t]||[]}function w(t){return d[t]=d[t]||o(e)}function v(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var g={},y={},x={on:p,addEventListener:p,removeEventListener:h,emit:e,get:w,listeners:m,context:n,buffer:v,abort:a,aborted:!1};return x}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(21),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=b.info=NREUM.info,n=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=p.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(21),u=t("ee"),d=t(20),l=window,p=l.document,h="addEventListener",m="attachEvent",w=l.XMLHttpRequest,v=w&&w.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:w,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var g=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1167.min.js"},x=w&&v&&v[h]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:g,features:{},xhrWrappable:x,userAgent:d};t(15),t(18),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,O=t(23)},{}],"wrap-function":[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(22),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}]},{},["loader",2,12,4,3]);</script><meta
+name="robots" content="max-snippet:160" /><meta
+name="robots" content="max-image-preview:large" /><meta
+name="robots" content="max-video-preview:5" /><title>Près de Nantes, une salle sportive éclairée à 100% par des LED</title><meta
+name="description" content="Réalisée par l’Atelier d’architecture Chaix &amp; Morel et Associés avec  SNC-Lavalin, la salle sportive métropolitaine, qui ouvrira ses..." /><meta
+name="robots" content="index,follow" /><meta
+property="og:url" content="https://www.lemoniteur.fr/article/pres-de-nantes-une-salle-sportive-eclairee-a-100-par-des-led.673059" /><meta
+property="og:title" content="Près de Nantes, une salle sportive éclairée à 100% par des LED" /><meta
+property="og:description" content="Réalisée par l’Atelier d’architecture Chaix &amp; Morel et Associés avec  SNC-Lavalin, la salle sportive métropolitaine, qui ouvrira ses... - Réalisations" /><meta
+property="og:type" content="article" /><meta
+property="og:locale" content="fr_FR" /><meta
+property="og:site_name" content="lemoniteur.fr" /><meta
+property="og:image" content="https://www.lemoniteur.fr/mediatheque/4/8/6/001515684_620x393_c.jpg" /><meta
+property="og:image:type" content="image/jpeg" /><meta
+property="DC.title" lang="fr" content="Près de Nantes, une salle sportive éclairée à 100% par des LED"  /><meta
+property="DC.Subject" lang="fr" content="Réalisations, Loire-Atlantique, rezeled, Architecture, Equipement, Sport, France "  /><meta
+property="DC.Description" lang="fr" content="Réalisée par l’Atelier d’architecture Chaix &amp; Morel et Associés avec  SNC-Lavalin, la salle sportive métropolitaine, qui ouvrira ses... - Réalisations"  /><meta
+property="DC.Publisher" lang="fr" content=""  /><meta
+property="DC.Creator" lang="fr" content=""  /><meta
+property="DC.Date" content="2015-05-22 14:41:00" /><meta
+property="date.modified" scheme="W3CDTF" content="2019-09-24 19:48:23"  /><meta
+property="DC.Type" content="article" /><meta
+property="DC.Format" content="text/html" /><meta
+property="DC.Language" scheme="RFC3066" content="fr"  /><link
+rel="stylesheet" href="https://cmp.infopro-digital.com/cmpui.css"><link
+rel="stylesheet" href="/css/commun-min.IPDIGIT1581344558TIGIDPI.css"><link
+rel="stylesheet" href="/css/print-min.IPDIGIT1581344558TIGIDPI.css" media="print"><link
+rel="stylesheet" href="/css/mol-module/header-min.IPDIGIT1581343449TIGIDPI.css"><link
+rel="stylesheet" href="/css/mol-module/commun-module-min.IPDIGIT1581343449TIGIDPI.css"><link
+rel="stylesheet" href="/resources/bxslider/jquery.bxslider.min.IPDIGIT1582558056TIGIDPI.css"> <script src="/js/prepend-min.IPDIGIT1581344558TIGIDPI.js"></script> <script src="https://www.googletagservices.com/tag/js/gpt.js" async></script> <link
+rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon"><link
+rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png"><link
+rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png"><!--[if IE]><link
+rel="shortcut icon" type="image/x-icon" href="images/favicon.ico"/>
+<![endif]--><link
+rel="dns-prefetch" href="//www.googletagmanager.com/"><link
+rel="dns-prefetch" href="//ts.infoprodata.com/"><link
+rel="dns-prefetch" href="//cmp.infopro-digital.com/"><link
+rel="dns-prefetch" href="//logs1187.xiti.com/"><link
+rel="dns-prefetch" href="//www.googletagservices.com/"><link
+rel="dns-prefetch" href="//publicitasEMEA.vmg.host/"><link
+rel="dns-prefetch" href="//259710f66da04a8e8d9ce8db5c2253d5.js.ubembed.com/"><link
+rel="preload" href="/css/commun-min.IPDIGIT1581344558TIGIDPI.css" as="style"><link
+rel="preload" href="/css/print-min.IPDIGIT1581344558TIGIDPI.css" as="style"><link
+rel="preload" href="/css/mol-module/header-min.IPDIGIT1581343449TIGIDPI.css" as="style"><link
+rel="preload" href="/css/mol-module/commun-module-min.IPDIGIT1581343449TIGIDPI.css" as="style"><link
+rel="preload" href="/resources/bxslider/jquery.bxslider.min.IPDIGIT1582558056TIGIDPI.css" as="style"><link
+rel="preload" href="/js/prepend-min.IPDIGIT1581344558TIGIDPI.js" as="script"><link
+rel="preload" href="/resources/jquery/jquery.min.IPDIGIT1582558056TIGIDPI.js" as="script"><link
+rel="preload" href="/resources/jquery-lazyload/jquery.lazyload.min.IPDIGIT1582558056TIGIDPI.js" as="script"><link
+rel="preload" href="/js/libs/smarttag-min.IPDIGIT1581344558TIGIDPI.js" as="script"><link
+rel="preload" href="/js/commun-min.IPDIGIT1581344558TIGIDPI.js" as="script"><link
+rel="preload" href="/js/trackings-min.IPDIGIT1581344558TIGIDPI.js" as="script"><link
+rel="preload" href="/js/mol-module/header-min.IPDIGIT1574159907TIGIDPI.js" as="script"><link
+rel="preload" href="/resources/bxslider/jquery.bxslider.min.IPDIGIT1582558056TIGIDPI.js" as="script"><link
+rel="preload" href="/js/blog-module/comment-min.IPDIGIT1544447737TIGIDPI.js" as="script"><link
+rel="preload" href="/js/blog-module/social-sharing-min.IPDIGIT1578930785TIGIDPI.js" as="script"><link
+rel="preload" href="/js/pages/article-min.IPDIGIT1581344558TIGIDPI.js" as="script"><link
+rel="preload" href="/js/gam-min.IPDIGIT1581344558TIGIDPI.js" as="script"></head><body
+data-arche-version="2" data-arche-width="996">
+<noscript>
+<iframe
+src="https://www.googletagmanager.com/ns.html?id=GTM-TB3QFCK" height="0" width="0" style="display:none; visibility:hidden"></iframe>
+</noscript><div
+class="headerContainer theme__lme" id="jqHeader"><header
+class="headerContainer__header header"><div
+class="header__logo">
+<a
+href="/">
+<img
+src="/images/logo-moniteur.svg" alt="Le moniteur des travaux publics et du bâtiment" data-no-lazy="true"/>
+</a></div><div
+class="header__userAbo">
+<a
+href="https://abonnements.infopro-digital.com/le-moniteur/formule/18#xtor=CS5-204-[site_bouton]-[return_url]-[header]-[a]"
+class="header__btn button__abo is-displayNone"
+target="_blank"       rel="noopener"                    data-user-is-connected="false"
+data-user-is-ip-pass="false"
+>
+<i
+class="ico-contract"></i>
+<span>S'abonner</span>
+</a>
+<a
+href="https://abonnements.infopro-digital.com/le-moniteur/formule/18#xtor=CS5-204-[site_bouton]-[return_url]-[header]-[a]"
+class="header__btn button__abo is-displayNone"
+target="_blank"       rel="noopener"                    data-user-is-connected="true"
+data-user-is-ip-pass="false"
+data-user-is-abomag="false"
+>
+<i
+class="ico-contract"></i>
+<span>S'abonner</span>
+</a>
+<a
+href="https://abonnements.infopro-digital.com/votre-abonnement-le-moniteur-pass/"
+class="header__btn button__abo is-displayNone"
+target="_blank"       rel="noopener"                    data-user-is-connected="true"
+data-user-is-pass="true"
+>
+<i
+class="ico-contract"></i>
+<span>Pass</span>
+</a>
+<a
+href="/creation-compte-le-moniteur-pass"
+class="header__btn button__abo is-displayNone"
+data-user-is-connected="false"
+data-user-is-ip-pass="true"
+>
+<i
+class="ico-contract"></i>
+<span>Créer mon compte</span>
+</a>
+<a
+href="https://abonnements.infopro-digital.com/votre-abonnement-le-moniteur-pass/"
+class="header__btn button__abo is-displayNone"
+target="_blank"       rel="noopener"                    data-user-is-connected="true"
+data-user-is-ip-pass="true"
+>
+<i
+class="ico-contract"></i>
+<span>Pass</span>
+</a><a
+href="#" class="jqBtnMenu header__btn button__menu"></a>
+<a
+href="#" class="jqBtnMenuUser header__btn button__user is-displayNone"
+data-user-is-connected="true">
+<i
+class="ico-user-connect"></i>
+<span
+data-user-is-connected="true"
+data-user-label-connected="Mon Compte">
+</span>
+</a>
+<a
+href="/connexion/"
+class="header__btn button__user is-displayNone"
+data-user-is-connected="false">
+<i
+class="ico-user"></i>
+<span>Se connecter</span>
+</a></div></header><div
+class="headerContent__mainMenu mainMenu jqMenu"><div
+class="mainMenu__search" id="jqSearch"><form
+action="/recherche" method="get" id="searchForm" class="searchForm"><div
+id="jqCloseSearch" class="searchForm__close">
+<i
+class="ico-close-circle"></i></div><div
+class="searchForm__content searchContent jqWrapperSearch">
+<label
+for="inputSearch" class="searchContent__label jqLabelSearch">
+<i
+class="ico-search"></i>
+<span>Que recherchez-vous ?</span>
+</label>
+<input
+type="text" id="inputSearch" name="keyword" value="" class="searchContent__input jqInputSearch" enterkeyhint="search" />
+<span
+class="searchContent__reset jqResetSearch"><i
+class="ico-reset"></i></span></div></form></div><nav
+class="mainMenu__thematics jqThematics">
+<a
+class="thematics__links"
+href="/choix-territoire"
+>
+Mon Territoire
+</a>
+<a
+class="thematics__links"
+href="/vie-du-btp/"
+>
+Vie du BTP
+</a>
+<a
+class="thematics__links"
+href="/immobilier/"
+>
+Immobilier
+</a>
+<a
+class="thematics__links"
+href="/architecture/"
+>
+Architecture
+</a>
+<a
+class="thematics__links"
+href="/technique/"
+>
+Technique
+</a>
+<a
+class="thematics__links"
+href="/reglementation/"
+>
+Réglementation
+</a><div
+class="thematics__linkMore">
+<a
+href="#" class="thematics__links is-more jqBtnThematicMore">Plus</a><div
+class="thematics__more jqThematicMore">
+<a
+class="thematics__links"
+href="/moniteur-innovation-day/"
+>
+Moniteur Innovation Day
+</a>
+<a
+class="thematics__links"
+href="/international/"
+>
+Le Moniteur International
+</a>
+<a
+class="thematics__links"
+href="/numerique/"
+>
+Numérique
+</a>
+<a
+class="thematics__links"
+href="/grand-paris/"
+>
+Grand Paris
+</a>
+<a
+class="thematics__links"
+href="/artisans/"
+>
+Le Moniteur des Artisans
+</a>
+<a
+class="thematics__links"
+href="/negoce/"
+>
+Négoce
+</a>
+<a
+class="thematics__links"
+href="/paysage/"
+>
+Paysage
+</a>
+<a
+class="thematics__links"
+href="https://www.lemoniteurmateriels.fr/"
+target="_blank"
+rel=" noopener"                >
+Le Moniteur Matériels
+</a>
+<a
+class="thematics__links"
+href="https://www.amc-archi.com/"
+target="_blank"
+rel=" noopener"                >
+AMC Architecture
+</a>
+<a
+class="thematics__links"
+href="https://www.cahiers-techniques-batiment.fr/"
+target="_blank"
+rel=" noopener"                >
+Les Cahiers Techniques du Bâtiment
+</a>
+<a
+class="thematics__links"
+href="/operations-immobilieres/"
+>
+Opérations Immobilières
+</a></div></div></nav><div
+class="mainMenu__tools">
+<a
+href="#" id="jqBtnSearch" class="btnTools btnTools--search"><i
+class="ico-search"></i> <span>Recherche</span></a>
+<a
+href="/archives" class="btnTools btnTools--mag"><i
+class="ico-magazine"></i> <span>Magazine</span></a>
+<a
+href="/inscription-newsletter" class="btnTools btnTools--news"><i
+class="ico-newsletter"></i> <span>Newsletters</span></a></div><div
+class="headerContainer__top headerTop"><div
+class="headerTop__links">
+<span
+class="headerTop__title">Services</span>
+<a
+href="/appels-offres/"
+>
+Appels d'offres
+</a>
+<a
+href="https://evenements.infopro-digital.com/lemoniteur/formations/"
+target="_blank"
+rel=" noopener">
+Formations
+</a>
+<a
+href="https://evenements.infopro-digital.com/lemoniteur/evenements/"
+target="_blank"
+rel=" noopener">
+Événements
+</a>
+<a
+href="https://emploi-btp.lemoniteur.fr/offre-emploi/offre-emploi-construction"
+target="_blank"
+rel=" noopener">
+Emploi
+</a>
+<a
+href="http://boutique.lemoniteur.fr/"
+target="_blank"
+rel=" noopener">
+Éditions
+</a>
+<a
+href="https://www.kheox.fr/"
+target="_blank"
+rel=" noopener">
+Kheox
+</a>
+<a
+href="https://www.batiproduits.com/"
+target="_blank"
+rel=" noopener">
+Fournisseurs BTP
+</a>
+<a
+href="/nos-webinars/"
+>
+Webinars
+</a>
+<a
+href="https://services.lemoniteur.fr/indices-index"
+target="_blank"
+rel=" noopener">
+Indices-Index
+</a></div></div></div><div
+class="headerContent__menuUser menuUser jqMenuUser"><div
+class="menuUser__linksMo">
+<a
+href="/mon-compte"
+>
+Mon compte
+</a>
+<a
+href="/mon-profil"
+>
+Mes informations
+</a>
+<a
+href="/mes-newsletters"
+>
+Mes newsletters
+</a>
+<a
+href="/mon-actualite/"
+>
+Mon fil d'actualité personnalisé
+</a>
+<a
+href="/service/jurisprudence"
+>
+Analyses de Jurisprudences
+</a>
+<a
+href="https://services.lemoniteur.fr/indices-index"
+target="_blank"
+rel=" noopener"            >
+Indices-Index
+</a></div><div
+class="menuUser__linksTools">
+<a
+href="/contact"><i
+class="ico-phone"></i> Contact</a>
+<a
+href="/user/logout"><i
+class="ico-signout"></i> Déconnexion</a></div></div></div><div
+class="overlay"></div><div
+data-ad-id="bannerArche" class="jqGoogleAdServe "></div><div
+class="contentSite"><p
+class="titreEnDirect">En direct</p><div
+class="listeEnDirect"><ul
+class="listeEnDirect__ul"><li>
+<a
+href="/municipales-2020/">Municipales 2020</a></li><li>
+<span
+class="listeEnDirect__separ">&#124;</span>                    <a
+href="/littoral/">10 ans après Xynthia</a></li><li>
+<span
+class="listeEnDirect__separ">&#124;</span>                    <a
+href="/douche/">Douches "zéro ressaut"</a></li><li>
+<span
+class="listeEnDirect__separ">&#124;</span>                    <a
+href="/salaires-btp/">Salaires BTP</a></li><li>
+<span
+class="listeEnDirect__separ">&#124;</span>                    <a
+href="/grand-paris-express/">Grand Paris Express</a></li></ul><div
+class="imgSwip"><div
+class="imgSwip__cercle imgSwip__cercle--1"></div><div
+class="imgSwip__cercle imgSwip__cercle--2"></div><div
+class="imgSwip__cercle imgSwip__cercle--3"></div></div></div><div
+data-ad-id="banner" class="jqGoogleAdServe is-marginT-10 is-alignCenter"></div><div
+id="pageArticle"><ul
+id="breadcrumb" class="breadCrumb" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li
+itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><meta
+itemprop="position" content="1"><meta
+itemprop="item" content="https://www.lemoniteur.fr/">
+<a
+href="https://www.lemoniteur.fr/"><span
+itemprop="name">Accueil</span></a></li><li
+itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><meta
+itemprop="position" content="2"><meta
+itemprop="item" content="https://www.lemoniteur.fr/architecture/">
+&nbsp;&gt;                     <a
+href="https://www.lemoniteur.fr/architecture/"><span
+itemprop="name">Architecture</span></a></li><li
+itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><meta
+itemprop="position" content="3"><meta
+itemprop="item" content="https://www.lemoniteur.fr/realisations/">
+&nbsp;&gt;                     <a
+href="https://www.lemoniteur.fr/realisations/"><span
+itemprop="name">Réalisations</span></a></li><li
+itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><meta
+itemprop="position" content="4"><meta
+itemprop="item" content="https://www.lemoniteur.fr/article/pres-de-nantes-une-salle-sportive-eclairee-a-100-par-des-led.673059">
+&nbsp;&gt;                     <span
+itemprop="name">Près de Nantes, une salle sportive éclairée à 100% par des LED</span></li></ul> <script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/www.lemoniteur.fr\/article\/pres-de-nantes-une-salle-sportive-eclairee-a-100-par-des-led.673059"},"headline":"Pr\u00e8s de Nantes, une salle sportive \u00e9clair\u00e9e \u00e0 100% par des LED","datePublished":"2015-05-22 14:41:00","dateModified":"2019-09-24 19:48:23","author":{"@type":"Person","name":"Jean-Philippe Defawe (Bureau de Nantes du Moniteur)"},"publisher":{"@type":"Organization","name":"Le Moniteur","logo":{"@type":"ImageObject","url":{}}},"image":["https:\/\/www.lemoniteur.fr\/mediatheque\/4\/8\/6\/001515684_620x393_c.jpg"],"isAccessibleForFree":true}</script> <article
+class="colLeft pageArticleContent is-marginT-20"><div
+class="navDossier">
+<span
+class="navDossier__tag">dossier</span>
+<span
+class="navDossier__title">Electricité et éclairage</span><div
+class="navDossier__ctLinksNav">
+<a
+class="navDossier__linkNav navDossier__linkNav--prev" href="/article/8-eclairages-residentiels-d-exterieur.630864"><i
+class="icon-fleche gauche"></i></a>
+12/123
+<a
+class="navDossier__linkNav" href="/article/dans-le-tertiaire-les-technologies-classiques-restent-tres-competitives.1940079"><i
+class="icon-fleche"></i></a></div></div><figure
+class="pageArticleContent__img">
+<img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/mediatheque/4/8/6/001515684_620x393_c.jpg" width="620" height="393"
+alt="Près de Nantes, une salle sportive éclairée à 100% par des LED" /><figcaption
+class="pageArticleContent__figcaption pageArticleContent__figcaption--type1">
+L’éclairage de la salle permet de réaliser 40% d’économie.
+- &copy; © Jean-Philippe Defawe
+<a
+href="#zoom"><span
+class="triangleContainer"><i
+class="icon-loupe"></i></span></a></figcaption></figure><div
+class="lightbox short-animate" id="zoom">
+<img
+src="/mediatheque/4/8/6/001515684.jpg" alt="Près de Nantes, une salle sportive éclairée à 100% par des LED" class="long-animate" data-no-lazy="" /></div><div
+id="lightbox-controls" class="short-animate">
+<a
+id="close-lightbox" class="long-animate" href="#!">Close Lightbox</a></div><header
+class="pageArticleContent__header pageArticleContent__header--visuel"><h1 class="pageArticleContent__grosTitreArt pageArticleContent__grosTitreArt--type1">Près de Nantes, une salle sportive éclairée à 100% par des LED</h1><p
+class="pageArticleContent__infoArt">
+<span
+class="pageArticleContent__auteur">Jean-Philippe Defawe (Bureau de Nantes du Moniteur)</span>&nbsp;|&nbsp;                    <span
+class="pageArticleContent__date">le 22/05/2015</span>
+&nbsp;|&nbsp;<span
+class="pageArticleContent__tag">
+<a
+href="/loire-atlantique/" class="dateTagArtType__tags__tag">Loire-Atlantique</a>,&nbsp;                                <a
+href="/rezeled/" class="dateTagArtType__tags__tag">rezeled</a>,&nbsp;                                <a
+href="/architecture/" class="dateTagArtType__tags__tag">Architecture</a>,&nbsp;                                <a
+href="/equipement/" class="dateTagArtType__tags__tag">Equipement</a>,&nbsp;                                <a
+href="/sport/" class="dateTagArtType__tags__tag">Sport</a>
+</span></p></header><div
+class="pageArticleContent__container"><form
+action="/document-alert-tag" method="post" class="alertTag jqAlertTagForm" id="alertTagForm"><div
+class="jqAlertTagClic">
+<i
+class="icon-alerte"></i><p
+class="alertTag__title">Ma newsletter personnalisée<i
+class="icon-round-fleche rotate180"></i></p></div><div
+class="jqAlertTagcontainer alertTagcontainer"><div
+class="jqAlertTagConfirm alertTagConfirm" style="display: none"><p
+class="is-alignCenter">Votre demande a été prise en compte.</p>
+<a
+href="/ma-newsletter" class="configAlert" target="_blank">Configurer ma newsletter</a></div><div
+class="jqAlertTagContent"><p
+class="alertTag__subtitle">Ajouter ce(s) thème(s) à ma newsletter personnalisée</p><div
+class="ctBoutonType1__boutonTypeTag jqAlertTag" data-id="27">
+<i
+class="icon-checked"></i><span
+class="is-valignMiddle">Réalisations</span><div
+class="delete" style="display: none">
+<i
+class="icon-poubelle"></i><span
+class="is-valignMiddle">Supprimer</span></div>
+<input
+type="checkbox" name="tags[]" value="27" style="display: none"></div><div
+class="ctBoutonType1__boutonTypeTag jqAlertTag" data-id="195">
+<i
+class="icon-checked"></i><span
+class="is-valignMiddle">Loire-Atlantique</span><div
+class="delete" style="display: none">
+<i
+class="icon-poubelle"></i><span
+class="is-valignMiddle">Supprimer</span></div>
+<input
+type="checkbox" name="tags[]" value="195" style="display: none"></div><div
+class="ctBoutonType1__boutonTypeTag jqAlertTag" data-id="2684">
+<i
+class="icon-checked"></i><span
+class="is-valignMiddle">rezeled</span><div
+class="delete" style="display: none">
+<i
+class="icon-poubelle"></i><span
+class="is-valignMiddle">Supprimer</span></div>
+<input
+type="checkbox" name="tags[]" value="2684" style="display: none"></div><div
+class="ctBoutonType1__boutonTypeTag jqAlertTag" data-id="24">
+<i
+class="icon-checked"></i><span
+class="is-valignMiddle">Architecture</span><div
+class="delete" style="display: none">
+<i
+class="icon-poubelle"></i><span
+class="is-valignMiddle">Supprimer</span></div>
+<input
+type="checkbox" name="tags[]" value="24" style="display: none"></div><div
+class="ctBoutonType1__boutonTypeTag jqAlertTag" data-id="305">
+<i
+class="icon-checked"></i><span
+class="is-valignMiddle">Equipement</span><div
+class="delete" style="display: none">
+<i
+class="icon-poubelle"></i><span
+class="is-valignMiddle">Supprimer</span></div>
+<input
+type="checkbox" name="tags[]" value="305" style="display: none"></div><div
+class="ctBoutonType1__boutonTypeTag jqAlertTag" data-id="532">
+<i
+class="icon-checked"></i><span
+class="is-valignMiddle">Sport</span><div
+class="delete" style="display: none">
+<i
+class="icon-poubelle"></i><span
+class="is-valignMiddle">Supprimer</span></div>
+<input
+type="checkbox" name="tags[]" value="532" style="display: none"></div><div
+class="ctBoutonType1__boutonTypeTag jqAlertTag" data-id="243">
+<i
+class="icon-checked"></i><span
+class="is-valignMiddle">France </span><div
+class="delete" style="display: none">
+<i
+class="icon-poubelle"></i><span
+class="is-valignMiddle">Supprimer</span></div>
+<input
+type="checkbox" name="tags[]" value="243" style="display: none"></div><input
+type="hidden" name="idDocument" value="673059"><div
+class="is-clearBoth"></div><div
+class="ctBoutonType1">
+<button
+type="submit" class="ctBoutonType1__boutonType1 is-displayNone" data-user-has-alert-tag-service="true">
+<span
+class="is-valignMiddle">Valider</span> <i
+class="icon-cercle-fleche"></i>
+</button>
+<a
+class="ctBoutonType1__boutonType1 jqAlertTagLoginButton" data-user-has-alert-tag-service="false" href="/connexion/">
+<span
+class="is-valignMiddle">Valider</span> <i
+class="icon-cercle-fleche"></i>
+</a></div></div></div></form><div
+class="sommaireDossier"><p
+class="sommaireDossier__titre">Sommaire du dossier</p><ol
+class="sommaireDossier__ol"><li>
+<a
+href="/article/des-lampes-led-modulables-commandees-par-smartphone.781544">
+Des lampes led modulables commandées par smartphone
+</a></li><li>
+<a
+href="/article/rexel-de-l-electricite-au-pilotage.621339">
+Rexel, de l’électricité au pilotage
+</a></li><li>
+<a
+href="/article/viessmann-fait-entrer-le-net-dans-ses-chaudieres.609814">
+Viessmann fait entrer le Net dans ses chaudières
+</a></li><li>
+<a
+href="/article/renover-un-chauffage-electrique-a-effet-joule.547494">
+Rénover un chauffage électrique à effet Joule
+</a></li><li>
+<a
+href="/article/les-regulateurs-d-ambiance-connectes.630244">
+Les régulateurs d’ambiance connectés
+</a></li><li>
+<a
+href="/article/delta-dore-aux-commandes-de-la-maison-2-0.668939">
+Delta Dore aux commandes de la maison 2.0
+</a></li><li>
+<a
+href="/article/cont-ct-revolutionne-l-exploitation-energetique-domestique.1940084">
+Cont@ct révolutionne l’exploitation énergétique domestique
+</a></li><li>
+<a
+href="/article/aux-portes-de-l-habitat-connecte.591529">
+Aux portes de l’habitat connecté
+</a></li><li>
+<a
+href="/article/l-offre-de-systemes-sans-fil-s-etoffe.1940074">
+L’offre de systèmes sans fil s’étoffe
+</a></li><li>
+<a
+href="/article/eclairage-public-par-led-la-lampe-a-huile-revient-a-la-mode.658689">
+Eclairage public par Led : la lampe à huile revient à la mode
+</a></li><li>
+<a
+href="/article/8-eclairages-residentiels-d-exterieur.630864">
+8 éclairages résidentiels d’extérieur
+</a></li><li
+class="sommaireDossier__actif">
+<a
+href="/article/pres-de-nantes-une-salle-sportive-eclairee-a-100-par-des-led.673059">
+Près de Nantes, une salle sportive éclairée à 100% par des LED
+</a></li><li>
+<a
+href="/article/dans-le-tertiaire-les-technologies-classiques-restent-tres-competitives.1940079">
+Dans le tertiaire, les technologies classiques restent très compétitives
+</a></li><li>
+<a
+href="/article/8-luminaires-leds-pour-l-habitat.1472699">
+8 luminaires leds pour l’habitat
+</a></li><li>
+<a
+href="/article/les-luminaires-leds-pour-l-habitat.1472729">
+Les luminaires leds pour l’habitat
+</a></li><li>
+<a
+href="/article/au-dela-du-confort-les-vertus-therapeutiques-de-la-lumiere.1940064">
+Au-delà du confort, les vertus thérapeutiques de la lumière
+</a></li><li>
+<a
+href="/article/un-gisement-important-d-economies.1940069">
+Un gisement important d’économies
+</a></li><li>
+<a
+href="/article/des-led-sous-controle.1940054">
+Des Led sous contrôle
+</a></li><li>
+<a
+href="/article/entre-lumieres-feutrees-et-eclairage-dynamique.1940059">
+Entre lumières feutrées et éclairage dynamique
+</a></li><li>
+<a
+href="/article/6-chauffe-eau-electriques.1176334">
+6 chauffe-eau électriques
+</a></li><li>
+<a
+href="/article/createur-de-bf-elec-electricite-generale-il-choisit-la-sous-traitance-pour-se-lancer.627784">
+créateur de BF Elec, électricité générale  - Il choisit la sous-traitance pour se lancer
+</a></li><li>
+<a
+href="/article/plancher-rayonnant-electrique-et-rt-2012-c-est-possible.902209">
+Plancher rayonnant électrique et RT 2012, c’est possible !
+</a></li><li>
+<a
+href="/article/une-adaptation-aux-nouvelles-technologies.1940049">
+Une adaptation aux nouvelles technologies
+</a></li><li>
+<a
+href="/article/le-chauffage-electrique-va-t-il-disparaitre-en-2013.1918929">
+Le chauffage électrique va-t-il disparaître en 2013 ?
+</a></li><li>
+<a
+href="/article/quels-criteres-pour-identifier-les-lampes.1940044">
+Quels critères pour identifier les lampes ?
+</a></li><li>
+<a
+href="/article/systeme-de-chauffage-electrique-avec-gestion-a-distance.918094">
+Système de chauffage électrique avec gestion à distance
+</a></li><li>
+<a
+href="/article/light-building.1393404">
+Light & building
+</a></li><li>
+<a
+href="/article/realisation-d-un-plafond-rayonnant-electrique-modulaire.843679">
+Réalisation d’un plafond rayonnant électrique modulaire
+</a></li><li>
+<a
+href="/article/8-luminaires-a-led.963334">
+8 luminaires à LED
+</a></li><li>
+<a
+href="/article/un-quotidien-plus-facile-avec-la-domotique.1045744">
+Un quotidien plus facile  avec la domotique
+</a></li><li>
+<a
+href="/article/de-belles-promesses-d-eclairage-pour-l-oled.830164">
+De belles promesses d’éclairage pour l’Oled
+</a></li><li>
+<a
+href="/article/les-panneaux-oled-une-idee-lumineuse.515594">
+Les panneaux Oled, une idée lumineuse
+</a></li><li>
+<a
+href="/article/8-solutions-domotiques.705709">
+8 solutions domotiques
+</a></li><li>
+<a
+href="/article/eclairage-les-panneaux-led-organiques-oled-debarquent-en-france.1452104">
+Eclairage : les panneaux Led organiques (Oled) débarquent en France
+</a></li><li>
+<a
+href="/article/la-domotique-sans-fil-plus-simple-et-fiable.993404">
+La domotique sans fil plus simple et fiable
+</a></li><li>
+<a
+href="/article/materiautheque-leds-les-diodes-electroluminescentes.1393009">
+Matériauthèque Leds, Les diodes électroluminescentes
+</a></li><li>
+<a
+href="/article/selection-produits-domotique-immotique-surete.833814">
+Sélection produits Domotique, immotique, sûreté
+</a></li><li>
+<a
+href="/article/des-packs-pour-oser-la-domotique.835104">
+Des packs pour oser la domotique
+</a></li><li>
+<a
+href="/article/l-eclairage-a-led-est-il-une-bonne-affaire.1918879">
+L'éclairage à LED est-il une bonne affaire ?
+</a></li><li>
+<a
+href="/article/l-age-de-la-simplicite.985109">
+L’âge de la simplicité
+</a></li><li>
+<a
+href="/article/des-led-dopees-aux-nanocristaux.1221554">
+Des LED dopées aux nanocristaux
+</a></li><li>
+<a
+href="/article/toujours-plus-de-concurrence.981914">
+Toujours plus de concurrence
+</a></li><li>
+<a
+href="/article/les-nouvelles-performances-des-led.1110634">
+Les nouvelles performances des LED
+</a></li><li>
+<a
+href="/article/les-solutions-deviennent-reellement-accessibles.984654">
+Les solutions deviennent réellement accessibles
+</a></li><li>
+<a
+href="/article/8-gammes-d-appareillage-electrique-d-installation.1464514">
+8 gammes d’appareillage électrique    d’installation
+</a></li><li>
+<a
+href="/article/eclairage-les-variateurs-dits-universels-le-sont-ils-vraiment.1469799">
+Éclairage : les variateurs dits "universels" le sont-ils vraiment ?
+</a></li><li>
+<a
+href="/article/eclairage-d-une-salle-de-bains-criteres-d-une-bonne-conception.1415449">
+Éclairage d’une salle de bains : critères d’une bonne conception
+</a></li><li>
+<a
+href="/article/interrupteurs-prises-et-balises.1337689">
+Interrupteurs prises et balises
+</a></li><li>
+<a
+href="/article/les-downlights-agrandissent-leur-champ-d-application.1940109">
+Les downlights agrandissent leur champ d’application
+</a></li><li>
+<a
+href="/article/les-interrupteurs-des-annees-30-revisites.1940104">
+Les interrupteurs des années 30 revisités
+</a></li><li>
+<a
+href="/article/quand-le-mur-devient-interrupteur.1940094">
+Quand le mur devient... interrupteur !
+</a></li><li>
+<a
+href="/article/la-revolution-communicante.1317109">
+La révolution communicante
+</a></li><li>
+<a
+href="/article/les-specialistes-cotoient-les-majors.1318004">
+Les spécialistes côtoient les majors
+</a></li><li>
+<a
+href="/article/vers-plus-d-integration-entre-puissance-et-communication.1318809">
+Vers plus d’intégration entre puissance et communication
+</a></li><li>
+<a
+href="/article/vocabulaire-eclairage-et-electricite.731259">
+Vocabulaire Eclairage et électricité
+</a></li><li>
+<a
+href="/article/comment-aborder-le-defi-de-la-nouvelle-electricite.1041884">
+Comment aborder le défi de la « nouvelle électricité »
+</a></li><li>
+<a
+href="/article/l-habitat-numerique.987084">
+L'habitat numérique
+</a></li><li>
+<a
+href="/article/les-specialistes-du-batiment-prets-a-relever-le-defi.987199">
+Les spécialistes du bâtiment prêts à relever le défi
+</a></li><li>
+<a
+href="/article/l-interoperabilite-au-c-ur-du-debat-sur-les-protocoles.987289">
+L’interopérabilité au cœur du débat sur les protocoles
+</a></li><li>
+<a
+href="/article/le-negoce-electrique-prend-en-main-les-installateurs.987349">
+Le négoce électrique prend en main les installateurs
+</a></li><li>
+<a
+href="/article/filiere-electrique-une-etude-xerfi-prevoit-un-rebond-apres-2013.542039">
+Filière électrique : une étude Xerfi prévoit un rebond… après 2013
+</a></li><li>
+<a
+href="/article/une-filiere-entre-effervescence-et-espoirs-decus.1427854">
+Une filière entre effervescence et espoirs déçus
+</a></li><li>
+<a
+href="/article/malgre-les-turbulences-les-negociants-maintiennent-le-cap.1427894">
+Malgré les turbulences, les négociants maintiennent le cap
+</a></li><li>
+<a
+href="/article/prises-et-interrupteurs.1396089">
+Prises et interrupteurs
+</a></li><li>
+<a
+href="/article/quand-la-prise-de-courant-devient-intelligente.1397269">
+Quand la prise de courant devient intelligente
+</a></li><li>
+<a
+href="/article/exit-le-blanc-vive-les-decorupteurs.1397024">
+Exit le blanc, vive les décorupteurs
+</a></li><li>
+<a
+href="/article/le-negoce-vit-sa-revolution-copernicienne.1397044">
+Le négoce vit sa révolution copernicienne
+</a></li><li>
+<a
+href="/article/vers-de-nouveaux-equilibres.786839">
+Vers de nouveaux équilibres
+</a></li><li>
+<a
+href="/article/la-renovation-veritable-enjeu-du-marche.784844">
+La rénovation, véritable enjeu du marché ?
+</a></li><li>
+<a
+href="/article/du-design-et-de-la-regulation.784904">
+Du design et de la régulation
+</a></li><li>
+<a
+href="/article/accompagner-la-montee-en-gamme.786914">
+Accompagner la montée en gamme
+</a></li><li>
+<a
+href="/article/le-marche-une-effervescence-pas-toujours-controlee.961004">
+Le marché  - Une Effervescence pas toujours contrôlée
+</a></li><li>
+<a
+href="/article/les-defis-de-la-post-incandescence.1194694">
+Les défis de la post-incandescence
+</a></li><li>
+<a
+href="/article/tendances-le-milieu-du-gue.1195274">
+Tendances   - Le milieu du gué
+</a></li><li>
+<a
+href="/article/de-l-eco-business-au-category-management.1194814">
+De l’eco-business au category management
+</a></li><li>
+<a
+href="/article/led-et-oled-eclipsent-les-autres-lampes.729084">
+LED et OLED éclipsent les autres lampes
+</a></li><li>
+<a
+href="/article/le-declin-des-ampoules-incandescentes-fait-baisser-les-volumes-pas-les-prix.625334">
+Le déclin des ampoules incandescentes fait baisser les volumes, pas les prix
+</a></li><li>
+<a
+href="/article/efficacite-energetique-rexel-sonde-les-electriciens.847794">
+Efficacité énergétique : Rexel sonde les électriciens
+</a></li><li>
+<a
+href="/article/legrand-renforce-encore-le-lien-avec-les-installateurs.695439">
+Legrand renforce encore le lien avec les installateurs
+</a></li><li>
+<a
+href="/article/rff-veut-electrifier-serqueux-gisors.665304">
+RFF veut électrifier Serqueux-Gisors
+</a></li><li>
+<a
+href="/article/partenariat-electrique-erdf-capeb.1458809">
+Partenariat électrique ERDF-Capeb
+</a></li><li>
+<a
+href="/article/plan-d-urgence-chez-toutelectric.1427834">
+Plan d’urgence chez Toutelectric
+</a></li><li>
+<a
+href="/article/lucibel-releve-le-defi-de-l-hyper-croissance.1427684">
+Lucibel relève le défi de « l’hyper-croissance »
+</a></li><li>
+<a
+href="/article/domotique-une-solution-pour-chaque-budget.1102534">
+Domotique : une solution pour chaque budget
+</a></li><li>
+<a
+href="/article/deee-des-objectifs-clarifies.1404919">
+DEEE, des objectifs clarifiés
+</a></li><li>
+<a
+href="/article/arnould-fait-evoluer-l-espace.848374">
+Arnould fait évoluer l’Espace
+</a></li><li>
+<a
+href="/article/electricite-locale-pour-seolis.1389829">
+Electricité locale pour Séolis
+</a></li><li>
+<a
+href="/article/le-negoce-pro-monte-en-puissance-chez-lucibel.905079">
+Le négoce pro monte en puissance chez Lucibel
+</a></li><li>
+<a
+href="/article/l-avenir-electrique-de-limoges-change-de-p-dg.1371794">
+L’Avenir électrique de Limoges change de P-DG
+</a></li><li>
+<a
+href="/article/sanelec-investit-dans-la-logistique.1308664">
+Sanelec investit dans la logistique
+</a></li><li>
+<a
+href="/article/urmet-captiv-cible-les-particuliers-pour-valoriser-la-filiere-pro.1168729">
+Urmet Captiv cible les particuliers pour valoriser la filière pro
+</a></li><li>
+<a
+href="/article/electricite-es-se-diversifie.823924">
+Electricité : ES se diversifie
+</a></li><li>
+<a
+href="/article/legrand-monte-en-puissance-sur-le-marche-de-l-assistance-a-l-autonomie.789679">
+Legrand monte en puissance sur le marché de l’assistance à l’autonomie
+</a></li><li>
+<a
+href="/article/pour-le-confort-et-la-securite-la-lumiere-fait-loi.1940119">
+Pour le confort et la sécurité, la lumière fait loi
+</a></li><li>
+<a
+href="/article/une-concertation-avec-les-riverains-au-c-ur-du-projet.1940134">
+Une concertation avec les riverains au cœur du projet
+</a></li><li>
+<a
+href="/article/une-mise-en-lumiere-urbaine-precise-et-discrete.530909">
+Une mise en lumière urbaine précise et discrète
+</a></li><li>
+<a
+href="/article/la-valorisation-des-centres-villes-recompensee.1331204">
+La valorisation des centres-villes récompensée
+</a></li><li>
+<a
+href="/article/des-minima-preconises-par-les-federations-sportives.1940129">
+Des minima préconisés par les fédérations sportives
+</a></li><li>
+<a
+href="/article/4-eclairage-modeler-et-animer-les-salles-de-spectacle.1940089">
+4 Éclairage Modeler et animer les salles de spectacle
+</a></li><li>
+<a
+href="/article/eclairage-interieur.1303469">
+Éclairage intérieur
+</a></li><li>
+<a
+href="/article/revolution-lumineuse-mais-invisible-au-louvre.1940099">
+Révolution lumineuse, mais invisible au Louvre
+</a></li><li>
+<a
+href="/article/en-champagne-des-led-facilitent-le-travail-dans-les-chais.1940124">
+En Champagne, des Led facilitent le travail dans les chais
+</a></li><li>
+<a
+href="/article/panneaux-lumineux-textiles-pour-dynamiser-les-espaces.1940114">
+Panneaux lumineux textiles pour dynamiser les espaces
+</a></li><li>
+<a
+href="/article/cinq-scenarios-pour-la-tour-montparnasse.1331494">
+Cinq scénarios pour la tour Montparnasse
+</a></li><li>
+<a
+href="/article/une-grande-surface-de-bricolage-passe-a-l-eclairage-led.476334">
+Une grande surface de bricolage passe à l’éclairage Led
+</a></li><li>
+<a
+href="/article/3-eclairage-attirer-les-clients-et-valoriser-les-produits.1940144">
+3 ÉCLAIRAGE  Attirer les clients et valoriser les produits
+</a></li><li>
+<a
+href="/article/commerce-un-eclairage-a-la-fois-original-et-performant.731864">
+Commerce Un éclairage à la fois original et performant
+</a></li><li>
+<a
+href="/article/eclairage-innovant-du-viaduc-par-des-led.753164">
+Eclairage innovant du viaduc par des LED
+</a></li><li>
+<a
+href="/article/un-grand-tunnel-routier-passe-aux-led.1331679">
+Un grand tunnel routier passe aux LED
+</a></li><li>
+<a
+href="/article/un-tunnel-cinetique-chemise-d-acier-et-de-reflets.1333264">
+Un tunnel cinétique chemisé d’acier et de reflets
+</a></li><li>
+<a
+href="/article/quand-la-vague-embras-s-e-la-digue.1333279">
+Quand la vague embras(s)e la digue
+</a></li><li>
+<a
+href="/article/confort-et-maitrise-de-l-energie-orientent-l-installation.1940139">
+Confort et maîtrise de l’énergie orientent l’installation
+</a></li><li>
+<a
+href="/article/les-led-illuminent-une-citadelle-cathare.1401424">
+Les LED illuminent une citadelle cathare
+</a></li><li>
+<a
+href="/article/une-scenographie-lumineuse-actionnee-par-les-passants.1086709">
+Une scénographie lumineuse actionnée par les passants
+</a></li><li>
+<a
+href="/article/extinction-de-l-eclairage-des-batiments-publics-une-avancee-vers-les-economies-d-energie.1940154">
+Extinction de l’éclairage des bâtiments publics : une avancée vers les économies d'énergie
+</a></li><li>
+<a
+href="/article/un-exercice-d-economies-et-d-ergonomie.1940149">
+Un exercice d’économies et d’ergonomie
+</a></li><li>
+<a
+href="/article/eclairage-interieur-des-batiments-les-electriciens-ont-peur-du-noir.1279204">
+Eclairage intérieur des bâtiments : les électriciens ont peur du noir
+</a></li><li>
+<a
+href="/article/eclairage-nocturne-des-batiments-non-residentiels-afin-de-limiter-les-nuisances-lumineuses-et-les-consommations-d-energie.570449">
+Éclairage nocturne des bâtiments non résidentiels afin de limiter les nuisances lumineuses et les consommations d’énergie
+</a></li><li>
+<a
+href="/article/eclairage-nocturne-des-batiments-non-residentiels-afin-de-limiter-les-nuisances-lumineuses-et-les-consommations-d-energie.862514">
+Éclairage nocturne des bâtiments non résidentiels afin de limiter les nuisances lumineuses et les consommations d’énergie
+</a></li><li>
+<a
+href="/article/sonepar-transforme-nra-lighting-en-label-de-competence.799114">
+Sonepar transforme NRA Lighting en label de compétence
+</a></li><li>
+<a
+href="/article/abi-prend-son-envol-sur-la-led.765539">
+Abi prend son envol sur la Led
+</a></li><li>
+<a
+href="/article/technilum-cultive-sa-singularite.1326384">
+Technilum cultive sa singularité
+</a></li><li>
+<a
+href="/article/neolux-veut-imposer-l-eclairage-par-led-dans-les-collectivites.1197964">
+Néolux veut imposer l’éclairage par LED dans les collectivités
+</a></li></ol></div><div
+class="pageArticleContent__chapoArt"><p>Réalisée par l’Atelier d’architecture Chaix &amp; Morel et Associés avec  SNC-Lavalin, la salle sportive métropolitaine, qui ouvrira ses portes  cet été à Rezé, est la première en France à être équipée d’un système  d’éclairage 100% LED.</p></div><div
+class="is-clearBoth"></div><p>Vendredi 14 août, l’équipe de France de basket rencontrera l’Ukraine dans la nouvelle salle sportive de Rezé. Un match inaugural qui sera aussi une première dans le monde sportif car ce nouvel équipement est totalement éclairé par des LED. «Cette technologie n’était pas suffisamment mûre lorsque nous avons lancé le projet mais nous l’avons introduite en cours du chantier» explique Hervé Guégan, responsable du projet chez Nantes Métropole.</p><p>De fait, celle salle est la première salle en France à être certifiée Level 2 par la Fédération Internationale de Basket-ball avec un équipement LED de cette envergure. Il a donc été conçu suivant les règles très strictes de la fédération qui requièrent un niveau d’éclairement en compétition de 1500 lux sur l’aire de jeu avec une uniformité supérieure à 80% et qui respectent les taux d’éblouissement inférieurs à 10% nécessaires aux retransmissions TV. Pour cela, 72 projecteurs sportifs LED et 62 projecteurs d’ambiances viendront ainsi éclairer la salle. L’affichage sportif sera quant à lui assuré par deux panneaux de scoring de 20 m² chacun, ainsi qu’un cube central avec 4 façades équipées d’écrans LED.</p><p><div
+class="diaporama"><div
+class="diaporama__ctImg"><figure
+class="pageArticleContent__img">
+<img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/mediatheque/9/8/6/001515689_520x330_c.jpg" width="520" height="330"
+alt="Toute l’électronique du système d’éclairage a été déportée dans un local technique pour faciliter la maintenance."/><figcaption
+class="pageArticleContent__figcaption pageArticleContent__figcaption--type1">
+L’éclairage de la salle permet de réaliser 40% d’économie.
+- &copy; © Jean-Philippe Defawe
+<a
+href="#zoomMedia1515689"><span
+class="triangleContainer"><i
+class="icon-loupe"></i></span></a></figcaption></figure><div
+class="lightbox short-animate" id="zoomMedia1515689">
+<img
+src="/mediatheque/9/8/6/001515689.jpg" alt="Toute l’électronique du système d’éclairage a été déportée dans un local technique pour faciliter la maintenance." class="long-animate" data-no-lazy="" /></div><div
+id="lightbox-controls" class="short-animate">
+<a
+id="close-lightbox" class="long-animate" href="#!">Close Lightbox</a></div></div></div></p><p>Proposée par SNC-Lavalin avec Philips, l’innovation tient aussi dans la mise en place un éclairage sportif LED permettant un éclairage scénique avec le même équipement. «En plus des modes de fonctionnements traditionnels, l’installation offre un mode dynamique avec différents scénarios. Elle peut être commandée depuis une tablette tactile» explique Hugues Saulnier, chef de projet chez SNC-Lavalin. Les LED permettent notamment l’utilisation du mode on/off sans temps d’attente, là où les systèmes d’éclairage traditionnels imposaient 10 à 15 minutes de refroidissement. Autre nouveauté, «toute l’électronique est déportée dans un local climatisé et facilement accessible pour la maintenance» explique le technicien.</p><p>Au total, 25km de câbles électriques et six mois d’études de conception et réalisation ont été nécessaires pour réaliser cet éclairage. «Avec cette technologie LED, les économies d’électricité sont de 40%. Le surcoût est d’environ 200 000 euros avec une rentabilité calculée sur 15 ans» argumente Hugues Saulnier.</p><p>Nul doute que les prochaines réalisations opteront pour ce système qui cumule les avantages. Même des salles livrées récemment, comme <a
+href="http://www.lemoniteur.fr/articles/le-vendespace-un-ecrin-100-modulable-16954485" target="" title="">le Vendéespace à La Roche-sur-Yon</a>, réfléchissent à basculer en LED.</p><p></p><p><div
+class="hors-texte"><p>Hugues Saulnier (SNC Lavalin) explique à Jean-Philippe Defawe (Bureau de Nantes du Moniteur) les particularités du nouveau système d'éclairage de la salle des sports de Rezé, près de Nantes.</p><p><div>
+<iframe
+frameborder="0" height="360" src="https://www.youtube.com/embed/G2hLA3uxXkc?rel=0" width="640"></iframe></div></p></div></p><p></p><p><div
+class="hors-texte">
+Les acteurs<p>
+<strong>Maître d’ouvrage: </strong>Nantes Métropole</p><p>
+<strong>Programmiste: </strong>ISC</p><p>
+<strong>
+<strong>Maître</strong> d’œuvre: </strong>Atelier d’architecture Chaix &amp; Morel et Associés</p><p>
+<strong>Bureau d’études: </strong>SNC Lavalin</p><p>
+<strong>Economiste: </strong>Bureau Michel Forgue</p><p>
+<strong>HQE concours: </strong>Franck Boutté</p><p>
+<strong>Acousticien: </strong>Alternative</p><p>
+<strong>Paysagiste: </strong>Neveux Rouyer</p></div></p><p></p><p><div
+class="hors-texte"><p>
+<strong>Périmètre du projet: </strong>15 096 m²</p><p>
+<strong>Surface de plancher: </strong>13 015 m² sur trois niveaux</p><p>
+<strong>Hauteur de bâtiment: </strong>17,50 m</p><p>
+<strong>Salle principale: </strong>3 000 m²</p><p>
+<strong>Salle d’entraînement: </strong>800 m²</p><p>
+<strong>Places assises en version basket: </strong>4 238</p><p>
+<strong>72 projecteurs LED</strong> (734 W – 78000 lumens)</p><p>
+<strong>62 projecteurs d’ambiance</strong> (216 W – 24000 lumens)</p><p>
+<strong>Eclairage de 1500 lux</strong> sur l’aire de jeu avec une uniformité de 80%</p><p>
+<strong>Coût total: </strong>25,675 millions d’euros HT (31 millions TTC)</p><p>
+<strong>Financement Nantes Métropole: </strong>18,627 millions d’euros HT</p><p>
+<strong>Subventions: </strong> Feder (2,55 millions d’euros), région des Pays de la  Loire (2 millions  d’euros), conseil départemental 44 (1 million  d’euros), CNDS (1 million  d’euros)</p></div></p><p></p><div
+id="inPageVideo"></div> <script type="text/javascript" async src="//publicitasEMEA.vmg.host/adServ/placement/id/5277"></script> <div
+data-ad-id="inread" class="jqGoogleAdServe "></div><div
+class="is-clearBoth"></div><div
+class="btnPartage btnPartage--type1 jqBtnPartage">
+<a
+class="btnPartage__btn jqfacebook"  target="_blank" rel="nofollow noopener" href="#"><i
+class="icon-facebook"></i></a>    <a
+class="btnPartage__btn jqlinked-in" target="_blank" rel="nofollow noopener" href="#" data-title="Près de Nantes, une salle sportive éclairée à 100% par des LED"><i
+class="icon-linkedin"></i></a>    <a
+class="btnPartage__btn jqtwitter"   target="_blank" rel="nofollow noopener" href="#" data-title="Près de Nantes, une salle sportive éclairée à 100% par des LED"><i
+class="icon-twitter"></i></a>    <button
+class="btnPartage__btn jqBtComment"><i
+class="icon-commentaire"></i></button></div></div><div
+class="ctBoutonType1 is-marginT-20">
+<button
+class="ctBoutonType1__boutonType2 jqBtComment"> <i
+class="icon-cercle-fleche"></i>&nbsp;&nbsp;
+<span
+class="is-valignMiddle">Réagir à cet article</span>
+</button></div><div
+class="blocFootDossier"><p
+class="blocFootDossier__faitPart">Cet article fait partie du dossier</p>
+<a
+href="/article/electricite-et-eclairage.1962909" class="blocFootDossier__title">Electricité et éclairage</a><div
+class="blocFootDossier__ctLinks">
+<a
+href="/article/8-eclairages-residentiels-d-exterieur.630864" class="blocFootDossier__link blocFootDossier__link--prev">
+<i
+class="icon-cercle-fleche"></i> <span
+class="is-valignMiddle">Article précédent 11/123</span>
+</a>
+<a
+href="/article/dans-le-tertiaire-les-technologies-classiques-restent-tres-competitives.1940079" class="blocFootDossier__link blocFootDossier__link--next">
+<span
+class="is-valignMiddle">Article suivant 13/123</span> <i
+class="icon-cercle-fleche"></i>
+</a></div></div><div
+data-ad-id="infeed" class="jqGoogleAdServe is-marginT-30"></div></article><div
+class="sidebar">
+<a
+class="xiti-track-clicks" href="https://www.abonnement.infopro-digital.com/offre-decouverte-le-moniteur-15-jours/inscription/176/1506?utm_source=lemoniteur&utm_medium=display&utm_campaign=bloc_fixe_lm_offre-decouverte_lm&utm_term=2018#xtor=AD-35" target="_blank" rel="nofollow" data-user-is-abomag="false" data-user-is-abotest="false" data-xiti-name="essai_bloc_droite_lem" data-xiti-chapter1="essai-bloc-droite" data-xiti-type="exit">
+<img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/images/pub-offre-essai.jpg" alt="Testez LeMoniteur.fr en mode abonné. Gratuit et sans engagement pendant 15 jours.">
+</a><div
+data-ad-id="pave" class="jqGoogleAdServe "></div><div
+class="ctTitreType1 ctTitreType1--margeType1 is-noMobile"><p
+class="titreType1">articles les plus lus</p></div><ul
+class="listePlusLus is-noMobile"><li>
+<a
+href="/article/yona-friedman-l-architecte-qui-voulait-laisser-faire-l-habitant.2076769">
+<img
+class="listePlusLus__img"
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/mediatheque/9/6/9/002079969_104x65_c.jpg" width="104" height="65"
+alt="Yona Friedman, l’architecte qui voulait laisser faire l’habitant" /><p
+class="listePlusLus__titleAvecImage">
+Yona Friedman, l’architecte qui voulait laisser faire l’habitant
+<span
+class="listePlusLus__date">&nbsp;&#124;&nbsp;Publié le 21/02/20 à 02:40</span></p>
+</a></li><li>
+<a
+href="/article/avec-l-aide-de-la-biologie-les-scientifiques-veulent-creer-des-betons-vivants.2076059">
+<img
+class="listePlusLus__img"
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/mediatheque/9/4/0/002079049_104x65_c.jpeg" width="104" height="65"
+alt="Avec l&#039;aide de la biologie, les scientifiques veulent créer des «bétons vivants»" /><p
+class="listePlusLus__titleAvecImage">
+Avec l'aide de la biologie, les scientifiques veulent créer des «bétons vivants»
+<span
+class="listePlusLus__date">&nbsp;&#124;&nbsp;Publié le 18/02/20 à 12:00</span></p>
+</a></li><li>
+<a
+href="/article/bouygues-une-bonne-annee-et-une-bonne-sante.2076589">
+<img
+class="listePlusLus__img"
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/mediatheque/4/1/8/001122814_104x65_c.jpg" width="104" height="65"
+alt="Bouygues, une bonne année et une bonne santé" /><p
+class="listePlusLus__titleAvecImage">
+Bouygues, une bonne année et une bonne santé
+<span
+class="listePlusLus__date">&nbsp;&#124;&nbsp;Publié le 20/02/20 à 10:19</span></p>
+</a></li></ul><p
+class="titreType2">Formations</p><ul
+class="listeTopForma"><li
+class="listeTopForma__li">
+<a
+href="https://evenements.infopro-digital.com/lemoniteur/formation-e-learning-les-fondamentaux-du-bim-p-10640" target="_blank" rel="noopener"><p
+class="listeTopForma__title">E-LEARNING | Les fondamentaux du BIM</p><p
+class="listeTopForma__date">1-31&nbsp;Mai&nbsp;2020</p><p
+class="listeTopForma__lieu">&nbsp;&#124;&nbsp;E-Learning</p>
+</a></li><li
+class="listeTopForma__li">
+<a
+href="https://evenements.infopro-digital.com/lemoniteur/formation-e-learning-elaborer-une-convention-bim-p-10645" target="_blank" rel="noopener"><p
+class="listeTopForma__title">E-LEARNING | &Eacute;laborer une convention BIM</p><p
+class="listeTopForma__date">1-31&nbsp;Mai&nbsp;2020</p><p
+class="listeTopForma__lieu">&nbsp;&#124;&nbsp;E-Learning</p>
+</a></li><li
+class="listeTopForma__li">
+<a
+href="https://evenements.infopro-digital.com/lemoniteur/formation-blended-learning-le-bim-pour-la-moa-et-la-gestion-de-patrimoine-p-10855" target="_blank" rel="noopener nofollow"><p
+class="listeTopForma__title">BLENDED-LEARNING | Le BIM pour la ma&icirc;trise d'ouvrage et la gestion de patrimoine</p><p
+class="listeTopForma__date">16-17&nbsp;Avril&nbsp;2020</p><p
+class="listeTopForma__lieu">&nbsp;&#124;&nbsp;Paris</p>
+</a></li><li
+class="lienVoirTout lienVoirTout--margeTop20">
+<a
+class="lienVoirTout__txt" href="http://evenements.infopro-digital.com/lemoniteur/formations/" target="_blank" rel="nofollow noopener">Toutes nos formations</a>
+<i
+class="icon-cercle-fleche"></i></li></ul><div
+data-ad-id="pave" class="jqGoogleAdServe blocSidePub"></div><p
+class="titreType2 titreType2--margeTop25">Evénements</p><ul
+class="listeEvenements"><li
+class="listeEvenements__li">
+<a
+href="https://evenements.infopro-digital.com/lemoniteur/evenement-bim-d-or-2020-p-11444" target="_blank" rel="noopener"><p
+class="listeEvenements__title">BIM D&rsquo;OR</p><p
+class="listeEvenements__lieuDate">
+<span
+class="listeEvenements__lieuDate__date">21&nbsp;Septembre&nbsp;2020</span>&nbsp;&#124;&nbsp;<span
+class="listeEvenements__lieuDate__lieu">Paris</span></p>
+</a></li><li
+class="listeEvenements__li">
+<a
+href="https://evenements.infopro-digital.com/lemoniteur/evenement-equerre-d-argent-2020-p-11449" target="_blank" rel="noopener"><p
+class="listeEvenements__title">&Eacute;QUERRE D&rsquo;ARGENT</p><p
+class="listeEvenements__lieuDate">
+<span
+class="listeEvenements__lieuDate__date">23&nbsp;Novembre&nbsp;2020</span>&nbsp;&#124;&nbsp;<span
+class="listeEvenements__lieuDate__lieu">Paris</span></p>
+</a></li><li
+class="listeEvenements__li">
+<a
+href="https://evenements.infopro-digital.com/lemoniteur/evenement-trophees-du-negoce-2020-p-11459" target="_blank" rel="noopener nofollow"><p
+class="listeEvenements__title">TROPH&Eacute;ES DU N&Eacute;GOCE</p><p
+class="listeEvenements__lieuDate">
+<span
+class="listeEvenements__lieuDate__date">23&nbsp;Juin&nbsp;2020</span>&nbsp;&#124;&nbsp;<span
+class="listeEvenements__lieuDate__lieu">Paris</span></p>
+</a></li><li
+class="lienVoirTout lienVoirTout--margeTop20"><a
+class="lienVoirTout__txt" href="http://evenements.infopro-digital.com/lemoniteur/conferences/ " target="_blank" rel="nofollow noopener">Tous les événements</a><i
+class="icon-cercle-fleche"></i></li></ul><div
+data-ad-id="pave" class="jqGoogleAdServe blocSidePub"></div></div><div
+class="is-clearBoth"></div><div
+class="colLeft pageArticleContent"><p
+class="titreType2 is-noMobile is-marginT-25">Appels d’offres</p><ul
+class="listeAppelsDoffres is-noMobile"><li
+class="listeAppelsDoffres__li">
+<a
+href="https://www.marchesonline.com/appels-offres/avis/travaux-de-construction-du-batiment-de-pole-de-mecaniq/ao-8172894-1" target="_blank" rel="noopener"><p
+class="listeAppelsDoffres__title">TRAVAUX DE CONSTRUCTION DU BÂTIMENT DE POLE DE MECANIQUE SUR LE SITE DE L'ECOLE POLYTECHNIQUE - RELANCE LOT 4 : Isolation Thermique par l'Extérieur</p><p
+class="listeAppelsDoffres__lieu">91 - Palaiseau</p>
+</a></li><li
+class="listeAppelsDoffres__li">
+<a
+href="https://www.marchesonline.com/appels-offres/avis/restructuration-de-l-unite-de-soins-palliatifs-de-la-m/ao-8172892-1" target="_blank" rel="noopener"><p
+class="listeAppelsDoffres__title">Restructuration de l'unité de soins palliatifs de la maison de santé Marie Galène</p><p
+class="listeAppelsDoffres__lieu">33 - Bordeaux</p>
+</a></li><li
+class="listeAppelsDoffres__li">
+<a
+href="https://www.marchesonline.com/appels-offres/avis/construction-de-15-logements-collectifs-a-st-geours-de/ao-8172891-1" target="_blank" rel="noopener nofollow"><p
+class="listeAppelsDoffres__title">Construction de 15 logements collectifs à St-Geours-de-Maremne (40)</p><p
+class="listeAppelsDoffres__lieu">33 - CLAIRSIENNE CONSTRUCTION</p>
+</a></li><li
+class="lienVoirTout lienVoirTout--margeTop20"><a
+class="lienVoirTout__txt" href="https://www.marchesonline.com/appels-offres/en-cours" target="_blank" rel="nofollow noopener">Voir tous les appels d’offres</a><i
+class="icon-cercle-fleche"></i></li></ul><div
+class="ctTitreType1 ctTitreType1--margeType1 is-noMobile"><p
+class="titreType1">Dans la même rubrique</p></div><div
+class="is-noMobile">
+<a
+href="/photo/a-bastia-le-mantinum-relie-le-vieux-port-a-la-citadelle.2076814/le-mantinum-a-bastia-theatre-de-verdure-et-bevedere.1" class="pageArticleContent"><figure
+class="pageArticleContent__img">
+<img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/mediatheque/4/4/0/002080044_620x393_c.JPG" width="620" height="393"
+alt="A Bastia, le Mantinum relie le Vieux-Port à la citadelle" /></figure><blockquote
+class="pageArticleContent__header"><h2 class="pageArticleContent__grosTitreArt pageArticleContent__grosTitreArt--type2">A Bastia, le Mantinum relie le Vieux-Port à la citadelle</h2><p>Inauguré le 23 février à Bastia (Haute-Corse), le Mantinum, cheminement doux, relie désormais le Vieux-Port au sommet de la citadelle. Les roches extraites lors du chantier ont servi à [...]</p></blockquote>
+</a></div><ul
+class="memeRubrique is-noMobile"><li>
+<a
+href="/article/equipement-sportif-d-eau-et-de-lumiere.2076379">
+<img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/mediatheque/9/2/3/002079329_148x94_c.jpg" width="148" height="94"
+alt="Equipement sportif - D&#039;eau et de lumière" />
+<img
+class="fermeAvecVisu" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/images/ferme.png" alt="Fermé" /><h2 class="memeRubrique--title">Equipement sportif - D'eau et de lumière</h2><p>Baignée de soleil par le sud, cette piscine s'immerge, côté est, dans la vision d'un [...]</p>
+</a></li><li>
+<a
+href="/article/logements-en-c-ur-d-ilot-un-paysage-interieur.2076329">
+<img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/mediatheque/9/3/2/002079239_148x94_c.jpg" width="148" height="94"
+alt="Logements - En cœur d&#039;îlot, un paysage intérieur" />
+<img
+class="fermeAvecVisu" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/images/ferme.png" alt="Fermé" /><h2 class="memeRubrique--title">Logements - En cœur d'îlot, un paysage intérieur</h2><p>Edifié sur une parcelle grevée de contraintes, un ensemble d'habitat social [...]</p>
+</a></li><li>
+<a
+href="/article/colombes-fenetres-sur-courbes.2076314">
+<img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/mediatheque/9/1/2/002079219_148x94_c.jpg" width="148" height="94"
+alt="Colombes : Fenêtres sur courbes" />
+<img
+class="fermeAvecVisu" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/images/ferme.png" alt="Fermé" /><h2 class="memeRubrique--title">Colombes : Fenêtres sur courbes</h2><p></p>
+</a></li></ul></div><div
+class="sidebar"><p
+class="titreType2 titreType2--margeTop25">Dernières offres d'emploi</p><ul
+class="listeOffresEmploi"><li>
+<a
+href="https://emploi-btp.lemoniteur.fr/offre-emploi/offre-emploi-conducteur-de-travaux-en-architecture-h-f-paris-appere-architectes-o-2491327-m-lemoniteur?utm_source=moniteur.fr&utm_medium=referral&utm_campaign=bloc" target="_blank" class="listeOffresEmploi__link" rel="noopener"><div
+class="listeOffresEmploi__img">
+<img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="https://www.emploi-pro.fr/mediatheque_public/6/8/6/000460686_std.jpg" width="62" alt="APPERE ARCHITECTES" /></div><div
+class="listeOffresEmploi__txt"><p
+class="listeOffresEmploi__type">APPERE ARCHITECTES</p><p
+class="listeOffresEmploi__title">CONDUCTEUR DE TRAVAUX EN ARCHITECTURE H/F</p><p
+class="listeOffresEmploi__lieu">PARIS</p><p
+class="listeOffresEmploi__date">&nbsp;&#124;&nbsp;12 février 2020</p></div>
+</a></li><li>
+<a
+href="https://emploi-btp.lemoniteur.fr/offre-emploi/offre-emploi-responsable-exploitation-maintenance-et-energies-h-f-beziers-centre-hospitalier-beziers-o-2492027-m-lemoniteur?utm_source=moniteur.fr&utm_medium=referral&utm_campaign=bloc" target="_blank" class="listeOffresEmploi__link" rel="noopener"><div
+class="listeOffresEmploi__img">
+<img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="https://www.emploi-pro.fr/mediatheque_public/3/1/2/000759213_std.png" width="62" alt="CENTRE HOSPITALIER BEZIERS" /></div><div
+class="listeOffresEmploi__txt"><p
+class="listeOffresEmploi__type">CENTRE HOSPITALIER BEZIERS</p><p
+class="listeOffresEmploi__title">RESPONSABLE EXPLOITATION, MAINTENANCE ET ENERGIES H/F</p><p
+class="listeOffresEmploi__lieu">BEZIERS</p><p
+class="listeOffresEmploi__date">&nbsp;&#124;&nbsp;24 février 2020</p></div>
+</a></li><li>
+<a
+href="https://emploi-btp.lemoniteur.fr/offre-emploi/offre-emploi-controleur-euse-de-gestion-operationnel-le-h-f-champs-sur-marne-demathieu-bard-o-2492057-m-lemoniteur?utm_source=moniteur.fr&utm_medium=referral&utm_campaign=bloc" target="_blank" class="listeOffresEmploi__link" rel="noopener"><div
+class="listeOffresEmploi__img">
+<img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="https://www.emploi-pro.fr/mediatheque_public/1/8/3/000462381_std.jpg" width="62" alt="DEMATHIEU BARD" /></div><div
+class="listeOffresEmploi__txt"><p
+class="listeOffresEmploi__type">DEMATHIEU BARD</p><p
+class="listeOffresEmploi__title">Contrôleur(euse) de Gestion Opérationnel(le) H/F</p><p
+class="listeOffresEmploi__lieu">CHAMPS SUR MARNE</p><p
+class="listeOffresEmploi__date">&nbsp;&#124;&nbsp;02 janvier 2020</p></div>
+</a></li><li
+class="lienVoirTout lienVoirTout--margeTop20"><a
+class="lienVoirTout__txt" href="http://emploi-btp.lemoniteur.fr/?utm_source=moniteur.fr&utm_medium=referral&utm_campaign=bloc" target="_blank" rel="nofollow noopener">Toutes les offres d’emploi</a><i
+class="icon-cercle-fleche"></i></li></ul><div
+class="blocBati "><p
+class="blocBati__title">LES NOUVEAUTés PRODUITS</p><div
+class="batiSlider"><div>
+<a
+href="https://www.batiproduits.com/fiche/produits/armoire-de-rangement-murale-inox-p312654750.html" target="_blank"><div
+class="blocBati__img"><img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="https://www.batiproduits.com/medias/0/7/6/011802670_flux_moniteur.jpeg" alt="Armoire de rangement murale inox" /></div>
+<span
+class="blocBati__txt">Armoire de rangement murale inox</span>
+<span
+class="blocBati__entrep"></span><p
+class="blocBati__btnBatiproduits"><i
+class="icon-demande-doc"></i><span
+class="is-valignMiddle">VOIR LE PRODUIT</span></p>
+</a></div><div>
+<a
+href="https://www.batiproduits.com/fiche/produits/bac-de-retention-pour-le-stockage-de-fut-ou-de-c-p70285718.html" target="_blank"><div
+class="blocBati__img"><img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="https://www.batiproduits.com/medias/3/1/5/003418513_flux_moniteur.jpg" alt="Bac de rétention pour le stockage de fût ou de cuves | MRP BI" /></div>
+<span
+class="blocBati__txt">Bac de rétention pour le stockage de fût ou de cuves | MRP BI</span>
+<span
+class="blocBati__entrep">MRP BI</span><p
+class="blocBati__btnBatiproduits"><i
+class="icon-demande-doc"></i><span
+class="is-valignMiddle">VOIR LE PRODUIT</span></p>
+</a></div><div>
+<a
+href="https://www.batiproduits.com/fiche/produits/rangement-a-bouteilles-en-terre-cuite-simple-ou-t-p69048093.html" target="_blank"><div
+class="blocBati__img"><img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="https://www.batiproduits.com/medias/3/9/6/002478693_flux_moniteur.jpg" alt="Rangement à bouteilles en terre cuite simple ou triple module | Casiers à bouteilles" /></div>
+<span
+class="blocBati__txt">Rangement à bouteilles en terre cuite simple ou triple module | Casiers à bouteilles</span>
+<span
+class="blocBati__entrep">Casiers à bouteilles</span><p
+class="blocBati__btnBatiproduits"><i
+class="icon-demande-doc"></i><span
+class="is-valignMiddle">VOIR LE PRODUIT</span></p>
+</a></div></div><a
+href="https://www.batiproduits.com/" target="_blank" rel="noopener" class="blocBati__link is-alignCenter"><i
+class="icon-fleche"></i>Accéder à tous les produits</a><p
+class="blocBati__enPartenariat is-alignCenter"><span
+class="blocBati__enPartenariat__txt">En partenariat avec</span> <img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/images/logo-batiproduits.png" alt="Batiproduits" /></p></div></div><div
+class="is-clearBoth"></div><div
+id="overlay"></div></div><div
+class="blocCommentaires jqComment"><div
+class="blocCommentaires__ct">
+<i
+class="icon-croix blocCommentaires__close jqBtCloseComment"></i><p
+class="blocCommentaires__title">Commentaires</p><p
+class="blocCommentaires__titleArt">Près de Nantes, une salle sportive éclairée à 100% par des LED</p><p
+id="post_success_0"></p><form
+id="formCommentaires_0" name="formCommentaires" method="post" class="blocCommentaires__form">
+<input
+type="hidden" id="doc_id_0" name="doc_id" value="673059" />
+<input
+type="hidden" id="parent_id_0" name="parent_id" value="" />
+<input
+type="text" id="pseudo_0" name="pseudo" value="" placeholder="Pseudo*" class="is-marginT-15" />
+<input
+type="text" id="email_0" name="email" value="" placeholder="Email*" class="is-marginT-10" /><p
+class="blocCommentaires__form__pasPublie">Votre e-mail ne sera pas publié</p><textarea id="commentaire_0" name="commentaire" placeholder="Message*" class="is-marginT-15"></textarea><input
+type="submit" value="Commenter" id="postCommentButton_0" data-iteration="0" name="submitComment" class="postCommentButton boutonType5 is-marginT-35" /></form></div></div><p
+class="titreType3 is-marginT-35">
+<span
+class="is-valignMiddle">Éditions du Moniteur</span>
+<img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/images/logo-moniteur-editions.png" alt="Le Moniteur boutique" class="is-imgResponsive is-valignMiddle" /></p><div
+class="slider">
+<a
+href="http://boutique.lemoniteur.fr/architectes/realisation/le-moniteur-n-6000-du-26-octobre-2018.html?CDORIGINE=EDZW307A" target="_blank" class="linkMoniteurBoutique linkMoniteurBoutique--MC" rel="noopener"><div
+class="linkMoniteurBoutique__img">
+<img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="https://boutique.lemoniteur.fr/media/catalog/product/cache/0/thumbnail/200x/9df78eab33525d08d6e5fb8d27136e95/6/0/6000_couv.jpg" alt="Le Moniteur n°6000 du 26 octobre 2018"/></div><div
+class="linkMoniteurBoutique__txt"><p
+class="linkMoniteurBoutique__txt__title">Le Moniteur n°6000 du 26 octobre 2018</p><p
+class="linkMoniteurBoutique__txt__presse">Date de parution :  10/2018</p><p
+class="lienVoirTout">
+<span
+class="lienVoirTout__txt">Voir</span>
+<i
+class="icon-cercle-fleche"></i></p></div><div
+class="is-clearBoth"></div>
+</a>
+<a
+href="http://boutique.lemoniteur.fr/architectes/realisation/amc-n-261-special-interieurs-2017.html?CDORIGINE=EDZW307A" target="_blank" class="linkMoniteurBoutique linkMoniteurBoutique--MC linkMoniteurBoutique--MC--margeleft" rel="noopener"><div
+class="linkMoniteurBoutique__img">
+<img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="https://boutique.lemoniteur.fr/media/catalog/product/cache/0/thumbnail/200x/9df78eab33525d08d6e5fb8d27136e95/a/m/amc_interieurs17_1.jpg" alt="AMC n°261 - Spécial Intérieurs 2017"/></div><div
+class="linkMoniteurBoutique__txt"><p
+class="linkMoniteurBoutique__txt__title">AMC n°261 - Spécial Intérieurs 2017</p><p
+class="linkMoniteurBoutique__txt__presse">Date de parution :  07/2017</p><p
+class="lienVoirTout">
+<span
+class="lienVoirTout__txt">Voir</span>
+<i
+class="icon-cercle-fleche"></i></p></div><div
+class="is-clearBoth"></div>
+</a>
+<a
+href="http://boutique.lemoniteur.fr/architectes/realisation/nouvelles-architectures-metal.html?CDORIGINE=EDZW307A" target="_blank" class="linkMoniteurBoutique linkMoniteurBoutique--MC linkMoniteurBoutique--MC--margeleft" rel="noopener"><div
+class="linkMoniteurBoutique__img">
+<img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="https://boutique.lemoniteur.fr/media/catalog/product/cache/0/thumbnail/200x/9df78eab33525d08d6e5fb8d27136e95/9/6/9639_hcoll_archi-metal_couv_1024.jpg" alt="Nouvelles architectures en métal"/></div><div
+class="linkMoniteurBoutique__txt"><p
+class="linkMoniteurBoutique__txt__title">Nouvelles architectures en métal</p><p
+class="linkMoniteurBoutique__txt__presse">Date de parution :  11/2016</p><p
+class="lienVoirTout">
+<span
+class="lienVoirTout__txt">Voir</span>
+<i
+class="icon-cercle-fleche"></i></p></div><div
+class="is-clearBoth"></div>
+</a></div><div
+class="is-clearBoth"></div><div
+class="ctBoutonType1 ctBoutonType1--margeTop30"><a
+href="https://boutique.lemoniteur.fr/?CDORIGINE=EDZW307A" target="_blank" class="ctBoutonType1__boutonType1" rel="noopener"><span
+class="is-valignMiddle">Accéder à la Boutique</span> <i
+class="icon-cercle-fleche"></i></a></div><div
+class="blocBonnesRaisons" data-user-is-abomag="false" data-user-is-pass="false"><div
+class="blocBonnesRaisons__txt"><p
+class="blocBonnesRaisons__txt__title"><span
+class="blocBonnesRaisons__txt__title__sabo">Les bonnes raisons de s’abonner</span><span
+class="blocBonnesRaisons__txt__title__monit">Au Moniteur</span></p><ul
+class="blocBonnesRaisons__txt__list"><li><i
+class="icon-fleche"></i> <span
+class="bold">La veille 24h/24</span> sur les marchés publics et privés</li><li><i
+class="icon-fleche"></i> <span
+class="bold">L’actualité nationale et régionale du secteur du BTP</span></li><li><i
+class="icon-fleche"></i> <span
+class="bold">La boite à outils réglementaire</span> : marchés, urbanismes, environnement</li><li><i
+class="icon-fleche"></i> <span
+class="bold">Les services indices-index</span></li></ul>
+<a
+href="https://www.abonnement.infopro-digital.com/le-moniteur/formule/18#xtor=CS5-204-[site_bloc]-[return_url]-[page_article]-[a]"
+target="_blank" class="blocBonnesRaisons__txt__jeMabo xiti-track-clicks"
+data-xiti-name="abonnement_bloc_article_lem" data-xiti-chapter1="abonnement-bloc-article" data-xiti-type="exit"><i
+class="icon-fleche"></i> Je m’abonne</a></div><div
+class="blocBonnesRaisons__img"><img
+src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/images/img-supports-moniteur.png" alt="Supports Moniteur" /></div></div><div
+data-ad-id="banner" class="jqGoogleAdServe is-marginT-30 is-noMobile is-alignCenter"></div><footer
+class="footer"><div
+class="footer__bot"><div
+class="footer__bot__follow"><ul
+class="footer__bot__follow__liste"><li><a
+href="/inscription-newsletter" target="_blank" id="jqShareMailBtn"><i
+class="icon-enveloppe"></i></a></li><li><a
+href="https://www.facebook.com/lemoniteur.fr/ " target="_blank" rel="nofollow noopener"><i
+class="icon-facebook"></i></a></li><li><a
+href="https://www.linkedin.com/groups/7470936 " target="_blank" rel="nofollow noopener"><i
+class="icon-linkedin"></i></a></li><li><a
+href="https://twitter.com/Le_Moniteur/ " target="_blank" rel="nofollow noopener"><i
+class="icon-twitter"></i></a></li></ul></div><p
+class="footer__bot__marqueInfopro">
+<span
+class="footer__bot__marqueInfopro__txt">Une marque du groupe</span>
+<a
+href="http://www.infopro-digital.com/" target="_blank" rel="noopener">
+<img
+class="footer__bot__marqueInfopro__img" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-original="/images/logo-infopro-footer.png" alt="Infopro Digital" border="0" />
+</a></p><ul
+class="footer__bot__toutSavoir"><li><a
+href="http://www.infopro-digital.com/marque/le-moniteur/">Tout savoir sur le Moniteur</a></li><li><a
+href="/contact">Contacts</a></li><li><a
+href="/mentions-legales">Mentions légales</a></li><li><a
+href="https://www.infopro-digital.com/rgpd-gdpr/fr/" target="_blank" rel="noopener">RGPD</a></li></ul></div></footer></div> <script>var pooolConf = {"debug":false,"id":"OWSAD-8QN2N-NLS5X-GCFB9","pageType":"free","userIsPremium":true}</script> <script type="text/javascript">var advertisementParams = {"networkCode":21799741328,"slotConfigurations":{"pave":{"sizes":"pave","typeAd":"pave"},"bannerArche":{"sizes":"bannerArche","typeAd":"ban"},"banner":{"sizes":"banner","typeAd":"ban"},"inread":{"sizes":"inread","typeAd":"inread"},"infeed":{"sizes":"infeed","typeAd":"infeed"}},"adsDisable":false,"targeting":{"devtest":false,"tags":["realisations","loire-atlantique","rezeled","architecture","equipement","sport","france","architecture","france","ouest-et-centre","pays-de-la-loire"],"tag_status":"standard","tag_type":"1","id_document":"673059","document_path":"article\/pres-de-nantes-une-salle-sportive-eclairee-a-100-par-des-led.673059","document_parution":"1","document_type":"1","document_closed":false,"document_access":"3","document_source":"1","dossier_id":"1962909"},"adUnitPath":"document"};</script> <script type="text/javascript">var xitiParams = {"page":{"name":"web-article-pres_de_nantes_une_salle_sportive_eclairee_a_100_par_des_led.673059","chapter1":"article","level2":2,"chapter2":"R\u00e9alisations"},"customVars":{"site":{"1":"anonyme","2":[],"3":"ouvert","4":"Jean-Philippe Defawe (Bureau de Nantes du Moniteur)","5":"20150522","9":"Ouvert","17":"ouvert"}},"identifiedVisitor":{"category":3},"tags":{"keywords":["R\u00e9alisations","Loire-Atlantique","rezeled","Architecture","Equipement","Sport","France ","Architecture","France ","Ouest et Centre","Pays de la Loire"]}};</script> <script src="/resources/jquery/jquery.min.IPDIGIT1582558056TIGIDPI.js"></script> <script src="/resources/jquery-lazyload/jquery.lazyload.min.IPDIGIT1582558056TIGIDPI.js"></script> <script src="/js/libs/smarttag-min.IPDIGIT1581344558TIGIDPI.js"></script> <script src="/js/commun-min.IPDIGIT1581344558TIGIDPI.js"></script> <script src="/js/trackings-min.IPDIGIT1581344558TIGIDPI.js"></script> <script src="/js/mol-module/header-min.IPDIGIT1574159907TIGIDPI.js"></script> <script src="//259710f66da04a8e8d9ce8db5c2253d5.js.ubembed.com" async></script> <script src="/resources/bxslider/jquery.bxslider.min.IPDIGIT1582558056TIGIDPI.js"></script> <script src="/js/blog-module/comment-min.IPDIGIT1544447737TIGIDPI.js"></script> <script src="/js/blog-module/social-sharing-min.IPDIGIT1578930785TIGIDPI.js"></script> <script src="/js/pages/article-min.IPDIGIT1581344558TIGIDPI.js"></script> <script src="/js/gam-min.IPDIGIT1581344558TIGIDPI.js"></script> <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"6c84580c5c","applicationID":"13942704","transactionName":"ZgFQMUVUV0dZAk0KWF9LcRBEQVZZFwVWAEJcAVwR","queueTime":0,"applicationTime":321,"atts":"SkZHRw1ORBgaABtZTEwZ","errorBeacon":"bam.nr-data.net","agent":""}</script></body></html>

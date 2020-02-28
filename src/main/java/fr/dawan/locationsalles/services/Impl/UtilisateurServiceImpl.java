@@ -1,5 +1,7 @@
 package fr.dawan.locationsalles.services.Impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,7 +40,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 	}
 
 	@Override
-	public Iterable<Utilisateur> save(Iterable<Utilisateur> utilisateurs) {
+	public List<Utilisateur> save(List<Utilisateur> utilisateurs) {
 		return utilisateurRepository.saveAll(utilisateurs);
 	}
 

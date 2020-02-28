@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 
 /**
@@ -72,6 +74,7 @@ public class Salle{
 	
 	
 	@OneToMany(mappedBy = "salle")
+	
 	Set<Reservation> listeReservation =new HashSet<>();
 	
 	public Salle(int capacite, String ville, String voie, String codePostale, String typeEvenement,
