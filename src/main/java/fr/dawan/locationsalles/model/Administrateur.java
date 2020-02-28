@@ -23,8 +23,8 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.StringUtils;
 
-import fr.dawan.locationsalles.utils.BCryptManagerUtil;
-import fr.dawan.locationsalles.utils.RoleEnum;
+import fr.dawan.locationsalles.security.BCryptManagerUtil;
+import fr.dawan.locationsalles.security.RoleEnum;
 import lombok.Data;
 
 //@Entity

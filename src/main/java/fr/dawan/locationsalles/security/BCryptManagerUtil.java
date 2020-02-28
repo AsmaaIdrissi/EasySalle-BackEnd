@@ -1,4 +1,4 @@
-package fr.dawan.locationsalles.utils;
+package fr.dawan.locationsalles.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

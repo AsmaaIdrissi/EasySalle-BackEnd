@@ -1,4 +1,4 @@
-package fr.dawan.locationsalles.utils;
+package fr.dawan.locationsalles.security;
 
 public enum RoleEnum {
 

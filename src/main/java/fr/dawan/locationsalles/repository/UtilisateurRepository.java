@@ -25,9 +25,4 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Intege
 
 
 
-
-//	
-//	@Query("select u from Utilisateur u " + " where u.username = ?1") 
-//	Optional<Utilisateur> findUserWithName(String username);
-
 }

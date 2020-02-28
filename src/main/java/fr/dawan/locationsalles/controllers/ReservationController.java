@@ -42,7 +42,8 @@ public class ReservationController {
 		Salle salle = salleRepository.findById(idSalle).orElse(null);
 
 		Utilisateur userFromDB = utilisateurServcie.findByMail(mail);
-// hiiiiiiiiiii safae je suis lààààààààààààà----------------
+
+		
 		if (userFromDB == null) {
 			userFromDB = utilisateurServcie.save(user);
 		}
@@ -62,38 +63,3 @@ public class ReservationController {
 	
 }
 
-//		System.out.println("initalisation");
-//		
-//		
-//		Salle newSalle=new Salle();
-//		//newSalle.setCapacite(200);
-//		newSalle.setCodePostale("44500");
-//		newSalle.setDescription("salle de mariage avec plusieurs services");
-//		newSalle.setDisponibilite(true);
-//		newSalle.setTypeEvenement("mariege");
-//		newSalle.setVille("nantes");
-//		
-//		newSalle=salleService.save(newSalle);
-//		/*
-//		
-//		Utilisateur newUtilisateur=new Utilisateur();
-//		
-//		newUtilisateur.setAdresse("2 boulevard xxx");
-//		newUtilisateur.setMail("xxxx@gmail.com");
-//		newUtilisateur.setNom("mmmmmm");
-//		newUtilisateur.setPrenom("nnnnnnnnn");
-//		newUtilisateur.setTel("0765432187");
-//		*/
-//		
-//		Reservation newReservation=new Reservation();
-//		newReservation.setSalle(newSalle);
-//		newReservation.setDateDebut(null);
-//		newReservation.setDateFin(null);
-//		newReservation.setUtilisateur(null);
-//		newReservation=reservationService.save(newReservation);
-//		System.out.println("new Id "+ newReservation.getId());
-//		
-//		//reservationService.delet(newReservation);
-//		//reservationService.delet(resule);
-//		return newReservation;
-//		

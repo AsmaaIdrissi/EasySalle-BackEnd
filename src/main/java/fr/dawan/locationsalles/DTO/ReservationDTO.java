@@ -1,42 +1,22 @@
+package fr.dawan.locationsalles.DTO;
+
 /**
  * 
  */
-package fr.dawan.locationsalles.model;
+
 
 import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 /**
  * @author mihandsafae
  *
  */
-@Entity
-public class Reservation {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idReservation")
+public class ReservationDTO {
 	private int id;
-
-	@Column(name = "dateDebut", nullable = true)
 	private Date dateDebut;
-
-	@Column(name = "dateFin", nullable = true)
 	private Date dateFin;
-
-	@ManyToOne(optional = false)
-	
-	private Salle salle;
-
-	@ManyToOne(optional = false)
-	private Utilisateur utilisateur;
+	private SalleDTO salle;
+	private UtilisateurDTO utilisateur;
 
 	/**
 	 * @param dateDebut
@@ -44,7 +24,7 @@ public class Reservation {
 	 * @param salle
 	 * @param utilisateur
 	 */
-	public Reservation(Date dateDebut, Date dateFin, Salle salle, Utilisateur utilisateur) {
+	public ReservationDTO(Date dateDebut, Date dateFin, SalleDTO salle, UtilisateurDTO utilisateur) {
 		super();
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
@@ -52,7 +32,7 @@ public class Reservation {
 		this.utilisateur = utilisateur;
 	}
 
-	public Reservation() {
+	public ReservationDTO() {
 
 	}
 
@@ -87,38 +67,33 @@ public class Reservation {
 	/**
 	 * @return the salle
 	 */
-	public Salle getSalle() {
+	public SalleDTO getSalle() {
 		return salle;
 	}
 
 	/**
 	 * @param salle the salle to set
 	 */
-	public void setSalle(Salle salle) {
+	public void setSalle(SalleDTO salle) {
 		this.salle = salle;
 	}
 
 	/**
 	 * @return the utilisateur
 	 */
-	public Utilisateur getUtilisateur() {
+	public UtilisateurDTO getUtilisateur() {
 		return utilisateur;
 	}
 
 	/**
 	 * @param utilisateur the utilisateur to set
 	 */
-	public void setUtilisateur(Utilisateur utilisateur) {
+	public void setUtilisateur(UtilisateurDTO utilisateur) {
 		this.utilisateur = utilisateur;
 	}
 
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id2) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

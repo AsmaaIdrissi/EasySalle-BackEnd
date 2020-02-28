@@ -1,4 +1,4 @@
-package fr.dawan.locationsalles.configs;
+package fr.dawan.locationsalles.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

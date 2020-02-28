@@ -1,4 +1,4 @@
-package fr.dawan.locationsalles.configs;
+package fr.dawan.locationsalles.security;
 
 import javax.sql.DataSource;
 
