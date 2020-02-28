@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.dawan.locationsalles.DTO.SalleDTO;
+import fr.dawan.locationsalles.Factory.SalleFactory;
 import fr.dawan.locationsalles.model.Salle;
 import fr.dawan.locationsalles.repository.SalleRepository;
 import fr.dawan.locationsalles.services.Impl.SalleServiceImpl;
@@ -53,31 +55,31 @@ public class SalleController {
 	
 	
 	@GetMapping(value = "/searchByVille")
-	public List<Salle> findbyVille(@RequestParam("ville") String ville) {
+	public List<SalleDTO> findbyVille(@RequestParam("ville") String ville) {
 		return  salleService.getSalleByVille(ville);
 	}
 	
 	
 	@GetMapping(value = "/searchByCapacite")
-	public List<Salle> findbyCapacite(@RequestParam("capacite") String capacite) {
-		return (List<Salle>) salleService.getSalleByVille(capacite);
+	public List<SalleDTO> findbyCapacite(@RequestParam("capacite") int capacite) {
+		return (List<SalleDTO>) salleService.getSalleByCapacite(capacite);
 	}
 	
 	
 	@GetMapping(value = "/searchByEvent")
-	public List<Salle> findbyTypeEvenement(@RequestParam("typeEvenement") String typeEvenement) {
-		return (List<Salle>) salleService.getSalleByVille(typeEvenement);
+	public List<SalleDTO> findbyTypeEvenement(@RequestParam("typeEvenement") String typeEvenement) {
+		return (List<SalleDTO>) salleService.getSalleByVille(typeEvenement);
 	}
 	
 
 	@GetMapping(value = "/searchByCodePostale")
-	public List<Salle> findbyCodePostale(@RequestParam("codePostale") String codePostale) {
-		return (List<Salle>) salleService.getSalleByVille(codePostale);
+	public List<SalleDTO> findbyCodePostale(@RequestParam("codePostale") String codePostale) {
+		return (List<SalleDTO>) salleService.getSalleByVille(codePostale);
 	}
 	
 	@GetMapping(value = "/searchByDispo")
-	public List<Salle> findbyDisponibilite(@RequestParam("disponibilite") Boolean disponibilite) {
-		return (List<Salle>) salleService.getSalleByDisponibilite(disponibilite);
+	public List<SalleDTO> findbyDisponibilite(@RequestParam("disponibilite") Boolean disponibilite) {
+		return (List<SalleDTO>) salleService.getSalleByDisponibilite(disponibilite);
 	}
 	@GetMapping(value = "/picture/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	public ResponseEntity<byte[]> download(@PathVariable("id") int id) {

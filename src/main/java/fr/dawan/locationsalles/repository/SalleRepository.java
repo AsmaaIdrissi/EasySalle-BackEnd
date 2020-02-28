@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import fr.dawan.locationsalles.DTO.SalleDTO;
+import fr.dawan.locationsalles.Factory.SalleFactory;
 import fr.dawan.locationsalles.model.Salle;
 
 public interface SalleRepository  extends JpaRepository<Salle, Integer>{

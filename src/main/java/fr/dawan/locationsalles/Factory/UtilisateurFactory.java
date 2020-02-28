@@ -74,7 +74,7 @@ public class UtilisateurFactory {
 	}
 
 	public static UtilisateurDTO get(Utilisateur entity) {
-		return get(entity, true);
+		return get(entity, false);
 	}
 
 	public static Set<UtilisateurDTO> getDtos(Set<Utilisateur> entities) {
