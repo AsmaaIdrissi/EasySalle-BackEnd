@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.dawan.locationsalles.model.Salle;
+import fr.dawan.locationsalles.repository.SalleRepository;
 import fr.dawan.locationsalles.services.Impl.SalleServiceImpl;
 
 @RestController
@@ -25,6 +29,9 @@ public class SalleController {
 	
 	@Autowired 
 	private SalleServiceImpl salleService;
+	
+	@Autowired
+	private SalleRepository salleRepository;
 	
 	
 	@GetMapping(value="/init")
@@ -74,7 +81,17 @@ public class SalleController {
 		return (List<Salle>) salleService.getSalleByDisponibilite(disponibilite);
 	}
 	
-	
+	@GetMapping(value = "/picture/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+	public ResponseEntity<byte[]> download(@PathVariable("id") int id) {
+		byte[] image = salleService.find(id).getPicture();
+		return ResponseEntity
+				// renvoie un status code 200
+				.ok()
+				// précise le type mime
+				.header(HttpHeaders.CONTENT_TYPE, "image/png")
+				// on envoie l'objet attendu
+				.body(image);
+	}
 	
 }
 
