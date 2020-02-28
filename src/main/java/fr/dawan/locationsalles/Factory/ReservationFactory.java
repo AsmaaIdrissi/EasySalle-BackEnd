@@ -48,15 +48,15 @@ public class ReservationFactory {
 	public static ReservationDTO get(Reservation entity, boolean loadSalle, boolean loadUser) {
 
 		ReservationDTO dto = new ReservationDTO();
-		entity.setDateDebut(entity.getDateDebut());
-		entity.setDateFin(entity.getDateFin());
+		dto.setDateDebut(entity.getDateDebut());
+		dto.setDateFin(entity.getDateFin());
 
 		if (loadSalle) {
-			entity.setSalle(SalleFactory.get(dto.getSalle()));
+			dto.setSalle(SalleFactory.get(entity.getSalle(), false, loadUser));
 		}
 		
 		if (loadUser) {
-			entity.setUtilisateur(UtilisateurFactory.get(dto.getUtilisateur()));
+			dto.setUtilisateur(UtilisateurFactory.get(entity.getUtilisateur()));
 		}
 
 		return dto;

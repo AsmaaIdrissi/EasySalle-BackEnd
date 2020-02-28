@@ -2,7 +2,9 @@ package fr.dawan.locationsalles.Factory;
 
 
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import fr.dawan.locationsalles.DTO.SalleDTO;
@@ -32,6 +34,7 @@ public class SalleFactory {
 		entity.setTypeEvenement(dto.getTypeEvenement());
 		entity.setVille(dto.getVille());
 		entity.setVoie(dto.getVoie());
+		entity.setPicture(dto.getPicture());
 
 		return entity;
 	}
@@ -69,6 +72,7 @@ public class SalleFactory {
 		dto.setTypeEvenement(entity.getTypeEvenement());
 		dto.setVille(entity.getVille());
 		dto.setVoie(entity.getVoie());
+		dto.setPicture(entity.getPicture());
 
 		if (loadReservation) {
 			dto.setListeReservation(ReservationFactory.getDtos(entity.getListeReservation(), false, loadUser));
@@ -81,8 +85,8 @@ public class SalleFactory {
 		return get(entity, false, false);
 	}
 
-	public static Set<SalleDTO> getDtos(Set<Salle> entities) {
-		Set<SalleDTO> set = new HashSet<>();
+	public static List<SalleDTO> getDtos(List<Salle> entities) {
+		List<SalleDTO> set = new ArrayList<>();
 
 		// Pour chaque entité dans le set d'entités en paramètre
 		// On le convertit en dto

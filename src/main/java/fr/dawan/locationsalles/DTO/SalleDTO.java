@@ -14,7 +14,7 @@ import java.util.Set;
  */
 public class SalleDTO {
 	private int id;
-//	private byte[] picture;
+	private byte[] picture;
 	private String name;
 	private int capacite;
 	private String ville;
@@ -36,13 +36,13 @@ public class SalleDTO {
 		this.name = name;
 	}
 
-//	public byte[] getPicture() {
-//		return picture;
-//	}
-//
-//	public void setPicture(byte[] picture) {
-//		this.picture = picture;
-//	}
+	public byte[] getPicture() {
+		return picture;
+	}
+
+	public void setPicture(byte[] picture) {
+		this.picture = picture;
+	}
 
 	public SalleDTO(int capacite, String ville, String voie, String codePostale, String typeEvenement,
 			String servicePropose, int categorie, String description, String geocalisation, boolean disponibilite) {

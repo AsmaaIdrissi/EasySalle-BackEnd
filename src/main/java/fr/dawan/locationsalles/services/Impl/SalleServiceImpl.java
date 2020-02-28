@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -24,6 +25,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import fr.dawan.locationsalles.DTO.SalleDTO;
+import fr.dawan.locationsalles.Factory.SalleFactory;
 import fr.dawan.locationsalles.model.Salle;
 import fr.dawan.locationsalles.repository.SalleRepository;
 import fr.dawan.locationsalles.services.SalleService;
@@ -113,30 +116,30 @@ public class SalleServiceImpl implements SalleService {
 	}
 
 	@Override
-	public List<Salle> getSalleByVille(String ville) {
-		List<Salle> salles = salleRepository.getSalleByVille(ville);
+	public List<SalleDTO> getSalleByVille(String ville) {
+		List<SalleDTO> salles = SalleFactory.getDtos(salleRepository.getSalleByVille(ville));
 		salles.forEach(s -> s.getListeReservation().forEach(r -> r.setSalle(null)));
 		return salles;
 	}
 
 	@Override
-	public List<Salle> getSalleByCapacite(int capacite) {
-		return salleRepository.getSalleByCapacite(capacite);
+	public List<SalleDTO> getSalleByCapacite(int capacite) {
+		return SalleFactory.getDtos(salleRepository.getSalleByCapacite(capacite));
 	}
 
 	@Override
-	public List<Salle> getSalleByTypeEvenement(String typeEvenement) {
-		return salleRepository.getSalleByTypeEvenement(typeEvenement);
+	public List<SalleDTO> getSalleByTypeEvenement(String typeEvenement) {
+		return SalleFactory.getDtos(salleRepository.getSalleByTypeEvenement(typeEvenement));
 	}
 
 	@Override
-	public List<Salle> getSalleByCodePostale(int codePostale) {
-		return salleRepository.getSalleByCodePostale(codePostale);
+	public List<SalleDTO> getSalleByCodePostale(int codePostale) {
+		return SalleFactory.getDtos(salleRepository.getSalleByCodePostale(codePostale));
 	}
 
 	@Override
-	public List<Salle> getSalleByDisponibilite(boolean disponibilite) {
-		return salleRepository.getSalleByDisponibilite(disponibilite);
+	public List<SalleDTO> getSalleByDisponibilite(boolean disponibilite) {
+		return SalleFactory.getDtos(salleRepository.getSalleByDisponibilite(disponibilite));
 	}
 
 	public Salle upload(int id, MultipartFile file) throws IOException, NotFoundException {
@@ -189,8 +192,6 @@ public class SalleServiceImpl implements SalleService {
 		return salleRepository.findAll();
 	}
 
-
-	
 	public Salle find(int id) {
 		return salleRepository.findById(id).orElse(new Salle());
 	}

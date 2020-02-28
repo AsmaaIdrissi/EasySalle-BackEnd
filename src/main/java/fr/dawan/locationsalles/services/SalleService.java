@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import fr.dawan.locationsalles.DTO.SalleDTO;
 import fr.dawan.locationsalles.model.Salle;
 
 public interface SalleService {
@@ -25,11 +27,11 @@ public interface SalleService {
 	public Salle getSalleById(int salleId) throws NotFoundException;
 	public List<Salle> getAllSallesById(Iterable<Integer> sallesIds) throws NotFoundException;
 	public List<Salle> getAllSalles();
-	public List<Salle> getSalleByVille(String ville);
-	public List<Salle> getSalleByCapacite(int capacite);
-	public List<Salle> getSalleByTypeEvenement(String typeEvenement);
-	public List<Salle> getSalleByCodePostale(int codePostale);
-	public List<Salle> getSalleByDisponibilite(boolean disponibilite);
+	public List<SalleDTO> getSalleByVille(String ville);
+	public List<SalleDTO> getSalleByCapacite(int capacite);
+	public List<SalleDTO> getSalleByTypeEvenement(String typeEvenement);
+	public List<SalleDTO> getSalleByCodePostale(int codePostale);
+	public List<SalleDTO> getSalleByDisponibilite(boolean disponibilite);
 	public Salle upload(int id, MultipartFile file) throws IOException, NotFoundException;
 	public Map<String,Salle> generatesalles() throws FileNotFoundException, IOException;
 	public Salle find(int id);
