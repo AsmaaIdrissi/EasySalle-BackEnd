@@ -81,6 +81,7 @@ public class SalleController {
 	public List<SalleDTO> findbyDisponibilite(@RequestParam("disponibilite") Boolean disponibilite) {
 		return (List<SalleDTO>) salleService.getSalleByDisponibilite(disponibilite);
 	}
+
 	@GetMapping(value = "/picture/{id}", produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
 	public ResponseEntity<byte[]> download(@PathVariable("id") int id) {
 		byte[] image = salleService.find(id).getPicture();
@@ -91,7 +92,9 @@ public class SalleController {
 				.header(HttpHeaders.CONTENT_TYPE, "image/png")
 				// on envoie l'objet attendu
 				.body(image);
-	}
+
+	
+}
 
 	
 }
