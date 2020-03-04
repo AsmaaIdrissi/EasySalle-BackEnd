@@ -22,7 +22,7 @@ import lombok.Data;
  *
  */
 @Entity
-@Table(name = "user")
+@Table(name = "utilisateur")
 public class Utilisateur {
 
 	@Id

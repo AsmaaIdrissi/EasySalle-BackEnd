@@ -32,8 +32,7 @@ public class SalleController {
 	@Autowired 
 	private SalleServiceImpl salleService;
 	
-	@Autowired
-	private SalleRepository salleRepository;
+	
 	
 	
 	@GetMapping(value="/init")

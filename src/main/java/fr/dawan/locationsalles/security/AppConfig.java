@@ -7,12 +7,11 @@ import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
-
+import org.springframework.web.servlet.view.JstlView;;
 @EnableWebMvc
 @Configuration
 @ComponentScan({ "com.mkyong.web.*" })
-@Import({ SecurityConfig.class })
+//@Import({ SecurityConfig.class })
 public class AppConfig {
 
 	@Bean(name = "dataSource")
