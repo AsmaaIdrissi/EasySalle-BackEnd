@@ -92,11 +92,11 @@ public class SalleController {
 				// on envoie l'objet attendu
 				.body(image);
 
-	
-}
 
 	
 }
+
+	}
 
 
 	
