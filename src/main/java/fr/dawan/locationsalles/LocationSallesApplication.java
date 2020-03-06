@@ -11,7 +11,8 @@ public class LocationSallesApplication
 	public static void main(String[] args) {
 		SpringApplication.run(LocationSallesApplication.class, args);
 		
-		
+	       
 	}
+
 
 }

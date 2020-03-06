@@ -15,6 +15,7 @@ import fr.dawan.locationsalles.model.Reservation;
 import fr.dawan.locationsalles.model.Salle;
 import fr.dawan.locationsalles.model.Utilisateur;
 import fr.dawan.locationsalles.repository.SalleRepository;
+import fr.dawan.locationsalles.services.Impl.EmailServiceImpl;
 import fr.dawan.locationsalles.services.Impl.ReservationServiceImpl;
 import fr.dawan.locationsalles.services.Impl.SalleServiceImpl;
 import fr.dawan.locationsalles.services.Impl.UtilisateurServiceImpl;
@@ -33,10 +34,17 @@ public class ReservationController {
 	private SalleServiceImpl salleService;
 	@Autowired
 	private SalleRepository salleRepository;
+	
+	@Autowired
+	private EmailServiceImpl emailService;
 
 	@GetMapping(value = "/reserver")
-	public void reserver(Utilisateur user, @DateTimeFormat(iso=ISO.DATE) @RequestParam("dateDebut") Date dateDebut , @DateTimeFormat(iso=ISO.DATE) @RequestParam("dateFin") Date dateFin, @RequestParam("mail") String mail,
-			@RequestParam(name = "idSalle", required = false) int idSalle) {
+	public void reserver(Utilisateur user,
+			@DateTimeFormat(iso=ISO.DATE) @RequestParam("dateDebut") Date dateDebut , 
+			@DateTimeFormat(iso=ISO.DATE) @RequestParam("dateFin") Date dateFin, 
+			@RequestParam("mail") String mail,
+			@RequestParam(name = "idSalle", required = false) int idSalle) 
+	{
 
 		Reservation newReservation = new Reservation();
 		Salle salle = salleRepository.findById(idSalle).orElse(null);
@@ -57,6 +65,8 @@ public class ReservationController {
 		utilisateurServcie.save(userFromDB);
 		salle.setDisponibilite(false);
 		salleService.save(salle);
+		
+		emailService.sendEmail(mail,salle.getName(),dateDebut,dateFin,salle.getVoie(),salle.getVille() );
 	}
 	
 	

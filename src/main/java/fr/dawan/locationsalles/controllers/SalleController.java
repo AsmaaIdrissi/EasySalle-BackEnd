@@ -25,7 +25,7 @@ import fr.dawan.locationsalles.services.Impl.SalleServiceImpl;
 
 @RestController
 @RequestMapping("/salle")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class SalleController {
 	
 	
