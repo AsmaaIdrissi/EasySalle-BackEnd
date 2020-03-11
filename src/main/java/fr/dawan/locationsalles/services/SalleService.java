@@ -34,6 +34,6 @@ public interface SalleService {
 	public List<SalleDTO> getSalleByDisponibilite(boolean disponibilite);
 	public Salle upload(int id, MultipartFile file) throws IOException, NotFoundException;
 	public Map<String,Salle> generatesalles() throws FileNotFoundException, IOException;
-	public Salle find(int id);
-	
+	public Salle findById(int id);
+
 }

@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package fr.dawan.locationsalles.model;
 
@@ -15,7 +15,8 @@ import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-
+import lombok.Getter;
+import lombok.Setter;
 
 
 /**
@@ -23,16 +24,18 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
  *
  */
 @Entity
+@Getter
+@Setter
 public class Salle{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "idSalle")
 	 private int id;
-	
-	@Lob
+
+
 	@Column(name="photo")
-	private byte[] picture;
-	
+	private String picture;
+
 	@Column(name = "name")
 	private String name ;
 	@Column(name = "capacite")
@@ -63,20 +66,15 @@ public class Salle{
 		this.name = name;
 	}
 
-	public byte[] getPicture() {
-		return picture;
-	}
-	public void setPicture(byte[] picture) {
-		this.picture = picture;
-	}
-	
-	
-	
-	
+
+
+
+
+
 	@OneToMany(mappedBy = "salle")
-	
+
 	Set<Reservation> listeReservation =new HashSet<>();
-	
+
 	public Salle(int capacite, String ville, String voie, String codePostale, String typeEvenement,
 			String servicePropose,int categorie, String description, String geocalisation, boolean disponibilite) {
 		super();
@@ -91,7 +89,7 @@ public class Salle{
 		this.geocalisation = geocalisation;
 		this.disponibilite= disponibilite;
 	}
-	
+
 	public int getCategorie() {
 		return categorie;
 	}
@@ -172,10 +170,10 @@ public class Salle{
 	}
 
 	public int getId() {
-		
+
 		return id;
 	}
-	
-	
+
+
 
 }

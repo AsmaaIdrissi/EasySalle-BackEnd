@@ -14,7 +14,7 @@ public class SalleFactory {
 
 	/**
 	 * Permet de construire une Salle à partir d'une SalleDTO
-	 * 
+	 *
 	 * @param dto le DTO à convertir
 	 * @param loadChildren false si vous voulez éviter la récursivité à partir de ce point
 	 * @return
@@ -52,7 +52,7 @@ public class SalleFactory {
 
 	/**
 	 * Permet de construire une SalleDTO à partir d'une Salle
-	 * 
+	 *
 	 * @param entity
 	 * @param loadReservation
 	 * @return

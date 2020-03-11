@@ -1,9 +1,12 @@
 package fr.dawan.locationsalles.DTO;
 
 /**
- * 
+ *
  */
 
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,9 +15,11 @@ import java.util.Set;
  * @author Admin-Stagiaire
  *
  */
+@Getter
+@Setter
 public class SalleDTO {
 	private int id;
-	private byte[] picture;
+	private String picture;
 	private String name;
 	private int capacite;
 	private String ville;
@@ -36,11 +41,11 @@ public class SalleDTO {
 		this.name = name;
 	}
 
-	public byte[] getPicture() {
+	public String getPicture() {
 		return picture;
 	}
 
-	public void setPicture(byte[] picture) {
+	public void setPicture(String picture) {
 		this.picture = picture;
 	}
 

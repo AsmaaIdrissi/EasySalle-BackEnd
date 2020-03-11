@@ -8,19 +8,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -142,14 +138,19 @@ public class SalleServiceImpl implements SalleService {
 		return SalleFactory.getDtos(salleRepository.getSalleByDisponibilite(disponibilite));
 	}
 
-	public Salle upload(int id, MultipartFile file) throws IOException, NotFoundException {
+  @Override
+  public Salle upload(int id, MultipartFile file) throws IOException, NotFoundException {
+    return null;
+  }
+
+/*	public Salle upload(int id, MultipartFile file) throws IOException, NotFoundException {
 		Salle salle = (salleRepository.findById(id).orElseThrow(() -> new NotFoundException()));
 		if (salle != null) {
 			salle.setPicture(file.getBytes());
 		}
 		salleRepository.save(salle);
 		return salle;
-	}
+	}*/
 
 	public Map<String, Salle> generatesalles() throws FileNotFoundException, IOException {
 		Map<String, Salle> salles = new HashMap<>();
@@ -192,7 +193,7 @@ public class SalleServiceImpl implements SalleService {
 		return salleRepository.findAll();
 	}
 
-	public Salle find(int id) {
+	public Salle findById(int id) {
 		return salleRepository.findById(id).orElse(new Salle());
 	}
 }
